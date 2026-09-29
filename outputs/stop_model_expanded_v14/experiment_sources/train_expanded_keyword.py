@@ -29,7 +29,7 @@ def breakdown(y,p,rr,threshold):
 
 def main():
  global DEST
- parser=argparse.ArgumentParser();parser.add_argument('--select-only',action='store_true');parser.add_argument('--output-dir',default='stop_model_expanded_v11');parser.add_argument('--warmstart');parser.add_argument('--batchnorm',action='store_true');parser.add_argument('--epochs',type=int,default=60);parser.add_argument('--streaming-supplement',action='store_true',help='Append work/streaming_supplement (training recordings only) to the training set');parser.add_argument('--widths',default='16,24,32',help='DS-CNN channel widths for the batch-normalized architecture');args=parser.parse_args();W=[int(w) for w in args.widths.split(',')];assert len(W)==3 and (args.batchnorm or W==[16,24,32]),'--widths applies to --batchnorm';DEST=BASE/args.output_dir
+ parser=argparse.ArgumentParser();parser.add_argument('--select-only',action='store_true');parser.add_argument('--output-dir',default='stop_model_expanded_v11');parser.add_argument('--warmstart');parser.add_argument('--batchnorm',action='store_true');parser.add_argument('--epochs',type=int,default=60);parser.add_argument('--streaming-supplement',action='store_true',help='Append work/streaming_supplement (training recordings only) to the training set');args=parser.parse_args();DEST=BASE/args.output_dir
  if args.select_only:
   assert (DEST/'best.keras').exists() and not (DEST/'frozen_selection.json').exists()
  else:DEST.mkdir(exist_ok=False)
@@ -42,7 +42,7 @@ def main():
  summary=json.loads((CACHE/'summary.json').read_text());dump(DEST/'dataset_summary.json',summary)
  local_manifest=json.loads((BASE/'reviewed_restart_manifest.json').read_text());local_val=rows(local_manifest,'validation')
  # Test is excluded from selection, including the old local test which is now a reused check.
- plan={'seed':SEED,'epochs':args.epochs,'shuffle':'Full training dataset each epoch; source/word order cannot survive a small shuffle buffer','warmstart':args.warmstart,'batchnorm':args.batchnorm,'early_stopping':'Stop after 12 epochs without validation-loss improvement','architecture':f'DS-CNN {W[0]}/{W[1]}/{W[2]}, temporal-mean-centered 49x24 log-mel'+(', same as V10' if W==[16,24,32] else ', wider than V10'),'loss':'sparse categorical crossentropy; class-balanced sample weights; MSWC negatives weighted x2; reviewed-device examples have absolute sample weight 8','selection':'At least 80% SC STOP recall, <=0.5% SC other-word FP, at least 70% MSWC STOP recall, <=1% MSWC other-word FP, <=5% FP separately for SHORT/START/STARK/SHOP (zero when fewer than 20 validation clips), <=0.5% sampled continuous-negative window FP, zero validation background triggers, >=3/4 local STOP at every prediction phase and zero local negative triggers. Maximize minimum local phase detection, then average SC/MSWC recall, then lower threshold.','test':'Expanded public test loaded only after model and threshold frozen; reviewed local test is reused development data','runtime':'TFLite BUILTIN_REF, no desktop accelerator delegates','streaming_supplement':'Training-only rolling negatives/augmented positives from the 16 reviewed training recordings, sample weight 8' if args.streaming_supplement else None}
+ plan={'seed':SEED,'epochs':args.epochs,'shuffle':'Full training dataset each epoch; source/word order cannot survive a small shuffle buffer','warmstart':args.warmstart,'batchnorm':args.batchnorm,'early_stopping':'Stop after 12 epochs without validation-loss improvement','architecture':'DS-CNN 16/24/32, temporal-mean-centered 49x24 log-mel, same as V10','loss':'sparse categorical crossentropy; class-balanced sample weights; MSWC negatives weighted x2; reviewed-device examples have absolute sample weight 8','selection':'At least 80% SC STOP recall, <=0.5% SC other-word FP, at least 70% MSWC STOP recall, <=1% MSWC other-word FP, <=5% FP separately for SHORT/START/STARK/SHOP (zero when fewer than 20 validation clips), <=0.5% sampled continuous-negative window FP, zero validation background triggers, >=3/4 local STOP at every prediction phase and zero local negative triggers. Maximize minimum local phase detection, then average SC/MSWC recall, then lower threshold.','test':'Expanded public test loaded only after model and threshold frozen; reviewed local test is reused development data','runtime':'TFLite BUILTIN_REF, no desktop accelerator delegates','streaming_supplement':'Training-only rolling negatives/augmented positives from the 16 reviewed training recordings, sample weight 8' if args.streaming_supplement else None}
  dump(DEST/'experiment_plan.json',plan)
  xt=np.load(CACHE/'x_train.npy',mmap_mode='r');yt=np.load(CACHE/'y_train.npy');tr=json.loads((CACHE/'rows_train.json').read_text())
  if args.streaming_supplement:
@@ -66,11 +66,11 @@ def main():
    assert not args.warmstart,'Batch-normalized architecture starts from random weights'
    L=tf.keras.layers
    model=tf.keras.Sequential([L.Input((49,24,1)),
-    L.Conv2D(W[0],(5,3),strides=2,padding='same',use_bias=False),L.BatchNormalization(),L.ReLU(),
+    L.Conv2D(16,(5,3),strides=2,padding='same',use_bias=False),L.BatchNormalization(),L.ReLU(),
     L.DepthwiseConv2D(3,strides=2,padding='same',use_bias=False),L.BatchNormalization(),L.ReLU(),
-    L.Conv2D(W[1],1,use_bias=False),L.BatchNormalization(),L.ReLU(),
+    L.Conv2D(24,1,use_bias=False),L.BatchNormalization(),L.ReLU(),
     L.DepthwiseConv2D(3,strides=(2,1),padding='same',use_bias=False),L.BatchNormalization(),L.ReLU(),
-    L.Conv2D(W[2],1,use_bias=False),L.BatchNormalization(),L.ReLU(),
+    L.Conv2D(32,1,use_bias=False),L.BatchNormalization(),L.ReLU(),
     L.Flatten(),L.Dropout(.2),L.Dense(3,activation='softmax')])
   if args.warmstart:model=tf.keras.models.load_model(BASE/args.warmstart)
   model.compile(optimizer=tf.keras.optimizers.Adam(.0003 if args.warmstart else .001),loss='sparse_categorical_crossentropy',metrics=['accuracy'])

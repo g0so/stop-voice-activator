@@ -12,6 +12,8 @@ V10 model: 13,288 bytes, threshold 0.8671875, 24 KiB reserved arena, one inferen
 |---|---|---|
 | V11 | Rejected on validation | Too many misses when threshold rejects similar words. Small shuffle buffer preserved dataset ordering. |
 | V12 | Rejected on validation | Full shuffle and stronger local-negative weighting improved some results but did not pass combined gates. |
+| V14 | Rejected on original gates; shipped as **baseline-improvement board candidate** | Batch norm + streaming supplement, 16/24/32. No checkpoint passes the V11 gates. By explicit collaborator decision, epoch_20 frozen at V10's threshold 0.8671875 (no tuning) before test, because it cuts V10's validation false activations ~5–50x at equal MSWC recall. Sketch: outputs/live_stop_expanded_v14/. Board test pending. |
+| V15 | Rejected on validation | Same as V14 with widths 32/48/64. No better at matched false activations: capacity is not the bottleneck. Test unscored. |
 | V13 | Interrupted | 13 epochs completed; log ended at epoch 14/60. best.keras and epoch_10.keras preserved. No validation selection, exported deployment model or test evaluation. No process running at handoff. |
 
 V13 adds batch normalization during training, intended to fold into convolutions when exported. Folding, operation compatibility and accuracy remain unchecked. Historical model directories may reference intermediate checkpoints not included here; best checkpoints and evidence are retained. V13 has both available checkpoints. This snapshot is sufficient to continue investigation, not to reproduce every old experiment byte-for-byte without regenerating data.

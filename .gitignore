@@ -24,5 +24,8 @@ __pycache__/
 *.map
 *.so
 /build/
+# Per-utterance continuous-replay caches (machine-specific paths); keep continuous_*_summary.json.
+/outputs/*/continuous_validation/
+/outputs/*/continuous_test/
 # Keep small, versioned .tflite/.keras files and complete firmware source in Git.
 # Keep the explicitly curated reviewed_restart audio and fan_noise_new.wav.

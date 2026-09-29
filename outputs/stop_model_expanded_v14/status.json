@@ -1,0 +1,5 @@
+{
+  "status": "evaluated baseline-improvement candidate (fails original V11 gates)",
+  "physical_board_test": "pending",
+  "streaming_negative_test": "pending"
+}

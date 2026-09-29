@@ -7,6 +7,7 @@ A work-in-progress, open-source keyword detector for an **ESP32-WROOM-32E and IN
 - **Friend / Claude Code:** read [AGENTS.md](AGENTS.md), [current status](docs/STATUS.md), then [development setup](docs/DEVELOPMENT.md).
 - **Hardware owner:** use the [Git collaboration and board testing workflow](docs/COLLABORATION.md).
 - **Current firmware:** [complete V10-R1 sketch](outputs/live_stop_reviewed_v10/live_stop_reviewed_v10.ino). It runs, but falsely detects some similar words. This is a baseline, not a finished solution.
+- **Board candidate V14:** [complete V14 sketch](outputs/live_stop_expanded_v14/live_stop_expanded_v14.ino) with [test plan](outputs/live_stop_expanded_v14/README.md). Far fewer similar-word false triggers than V10 on desktop evaluation, but it does **not** meet the original V11 acceptance gates and has not been compiled or tested on the board yet.
 
 **V13 is incomplete and is not ready to upload.** Training stopped after 13 completed epochs, during epoch 14. No training process was found at handoff. V11 and V12 failed validation. No training or compilation was performed while preparing this repository.
 
