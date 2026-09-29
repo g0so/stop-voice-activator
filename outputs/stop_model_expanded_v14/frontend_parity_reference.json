@@ -1,0 +1,9 @@
+{
+  "windows": 96,
+  "features_compared": 112896,
+  "max_float_difference": 1.1324882507324219e-06,
+  "max_quantized_input_difference": 0,
+  "different_quantized_inputs": 0,
+  "max_model_output_difference": 0,
+  "scope": "Actual C++ frontend and shared centering helper on host versus Python; rotating ring order covered. MCU numerical parity still requires board self-test."
+}

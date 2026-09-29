@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Resume only the selected public datasets, verifying publisher hashes before use."""
-import fcntl,hashlib,json,subprocess,sys,time
+import hashlib,json,subprocess,sys,time
+try:import fcntl
+except ImportError:fcntl=None;import msvcrt  # Windows: equivalent non-blocking exclusive lock
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor,as_completed
 BASE=Path(__file__).resolve().parent;WORK=BASE.parent/'work';DOWNLOAD=WORK/'downloads'
@@ -29,8 +31,8 @@ def fetch(r):
 def main():
  DOWNLOAD.mkdir(parents=True,exist_ok=True)
  with (WORK/'expanded_download.lock').open('w') as lock:
-  try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
-  except BlockingIOError:raise SystemExit('The expanded-data downloader is already running.')
+  try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB) if fcntl else msvcrt.locking(lock.fileno(),msvcrt.LK_NBLCK,1)
+  except (BlockingIOError,PermissionError,OSError):raise SystemExit('The expanded-data downloader is already running.')
   rows=json.loads((BASE/'expanded_sources.json').read_text())
   errors=[]
   with ThreadPoolExecutor(max_workers=3) as pool:

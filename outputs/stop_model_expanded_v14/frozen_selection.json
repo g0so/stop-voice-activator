@@ -1,0 +1,60 @@
+{
+  "checkpoint": "epoch_20.keras",
+  "threshold": 0.8671875,
+  "model_sha256": "4be984725547bc3702a6ef3c455a151096eb8138a400fa284b8fb670a5248429",
+  "selection_basis": "BASELINE-IMPROVEMENT CANDIDATE, NOT a pass of the V11 acceptance gates. Explicit collaborator decision on 2026-09-29 after V14/V15 rejection.",
+  "rule": "Validation only, decided before any test access: reuse V10-R1 threshold 0.8671875 unchanged (no threshold tuning); choose the checkpoint that matches V10 MSWC STOP recall and keeps zero local negative triggers with 4/4 local STOP at every phase, while cutting validation false activations. V15 excluded: larger/slower with no validation advantage.",
+  "original_gates_failed": [
+    "SC STOP recall 0.746 < 0.80",
+    "MSWC STOP recall 0.539 < 0.70",
+    "MSWC other-word FP 2.88% > 1%",
+    "SC other-word FP 0.55% > 0.5%",
+    "START 18/182 > 5%",
+    "STARK 1/8 > 0"
+  ],
+  "validation_diagnostics": {
+    "threshold": 0.8671875,
+    "sc_recall": 0.745575221238938,
+    "sc_fp": 0.0055422284721647775,
+    "mswc_recall": 0.5392156862745098,
+    "mswc_fp": 0.02879156528791565,
+    "libri_fp": 0.0012004801920768306,
+    "background_fp": 0,
+    "local_negative_clips_triggered": 0,
+    "local_stop_min_phase": 4,
+    "critical_words": {
+      "short": {
+        "total": 195,
+        "false": 0
+      },
+      "start": {
+        "total": 182,
+        "false": 18
+      },
+      "stark": {
+        "total": 8,
+        "false": 1
+      },
+      "shop": {
+        "total": 3,
+        "false": 0
+      }
+    }
+  },
+  "v10_same_validation": {
+    "threshold": 0.8671875,
+    "sc_recall": 0.801,
+    "mswc_recall": 0.534,
+    "mswc_fp": 0.3601,
+    "sc_fp": 0.0481,
+    "libri_fp": 0.0612,
+    "critical_words": {
+      "start": "97/182",
+      "short": "11/195",
+      "stark": "7/8",
+      "shop": "1/3"
+    },
+    "local_negative_clips_triggered": 0,
+    "local_stop_min_phase": 4
+  }
+}

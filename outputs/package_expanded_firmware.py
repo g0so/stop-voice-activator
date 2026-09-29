@@ -17,6 +17,6 @@ def main():
  code=re.sub(r'constexpr float STOP_THRESHOLD = [0-9.]+f;',f"constexpr float STOP_THRESHOLD = {selected['threshold']}f;",code)
  code=code.replace('REVIEWED MODEL V10-R1: checking six reference inputs',f'EXPANDED MODEL {version}: checking reference inputs').replace('READY V10-R1',f'READY {version}')
  (dest/(folder+'.ino')).write_text(code)
- (dest/'MODEL_PROVENANCE.json').write_text(json.dumps({'model_sha256':selected['model_sha256'],'threshold':selected['threshold'],'source_model_directory':str(model),'frontend':'Unchanged V10 per-band temporal mean centering','reference_outputs':'TFLite BUILTIN_REF','physical_board_status':'Not uploaded or measured yet'},indent=2)+'\n')
+ (dest/'MODEL_PROVENANCE.json').write_text(json.dumps({'model_sha256':selected['model_sha256'],'threshold':selected['threshold'],'source_model_directory':model.relative_to(BASE.parent).as_posix(),'frontend':'Unchanged V10 per-band temporal mean centering','reference_outputs':'TFLite BUILTIN_REF','physical_board_status':'Not uploaded or measured yet'},indent=2)+'\n')
  print(dest/(folder+'.ino'))
 if __name__=='__main__':main()
