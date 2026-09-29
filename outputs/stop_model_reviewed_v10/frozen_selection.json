@@ -1,0 +1,83 @@
+{
+  "checkpoint": "best.keras",
+  "threshold": 0.8671875,
+  "phase_stop_counts": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "public_validation": [
+    {
+      "accuracy": 0.9715832205683356,
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          624,
+          8
+        ],
+        [
+          0,
+          12,
+          94
+        ]
+      ],
+      "keyword_detected": 90,
+      "keyword_total": 106,
+      "keyword_missed": 16,
+      "keyword_recall": 0.8490566037735849,
+      "keyword_precision": 0.9375,
+      "other_speech_false_activations": 6,
+      "other_speech_total": 633,
+      "synthetic_background_false_activations": 0,
+      "synthetic_background_total": 0
+    },
+    {
+      "accuracy": 0.9539918809201624,
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          606,
+          27
+        ],
+        [
+          0,
+          7,
+          99
+        ]
+      ],
+      "keyword_detected": 90,
+      "keyword_total": 106,
+      "keyword_missed": 16,
+      "keyword_recall": 0.8490566037735849,
+      "keyword_precision": 0.9574468085106383,
+      "other_speech_false_activations": 4,
+      "other_speech_total": 633,
+      "synthetic_background_false_activations": 0,
+      "synthetic_background_total": 0
+    }
+  ],
+  "rank": [
+    4,
+    4.0,
+    0.8490566037735849,
+    -0.8671875
+  ],
+  "model_sha256": "f4cfb4a730d8318e5239c1cb5c3a234ef904744c5233fbc28d183379fc0d97e0"
+}

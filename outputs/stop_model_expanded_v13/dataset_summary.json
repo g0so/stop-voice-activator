@@ -1,0 +1,53 @@
+{
+  "train": {
+    "examples": 150252,
+    "sources": {
+      "speech_commands_v002": 89675,
+      "mswc": 42735,
+      "librispeech_dev_clean": 11522,
+      "reviewed_device": 320,
+      "background": 6000
+    },
+    "class_counts": [
+      6000,
+      130325,
+      13927
+    ]
+  },
+  "validation": {
+    "examples": 16552,
+    "sources": {
+      "speech_commands_v002": 12541,
+      "mswc": 2670,
+      "librispeech_dev_clean": 833,
+      "reviewed_device": 8,
+      "background": 500
+    },
+    "class_counts": [
+      500,
+      15392,
+      660
+    ]
+  },
+  "test": {
+    "examples": 13891,
+    "sources": {
+      "speech_commands_v002": 9745,
+      "mswc": 2465,
+      "librispeech_dev_clean": 1173,
+      "reviewed_device": 8,
+      "background": 500
+    },
+    "class_counts": [
+      500,
+      12842,
+      549
+    ]
+  },
+  "notes": [
+    "Public corpus speaker splits fixed before augmentation.",
+    "Reviewed device evaluation is same-speaker, separate recordings; public evaluation is within-corpus speaker-disjoint.",
+    "Source background files partitioned: four train, one validation, one test; fan recording train-only.",
+    "Feature extraction is deterministic and does not score/select a model on test examples."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "state": "interrupted_incomplete",
+  "completed_epochs": 13,
+  "last_log": "Epoch 14/60",
+  "running_process_found": false,
+  "validation_selection_completed": false,
+  "test_evaluated": false,
+  "approved_for_device": false,
+  "checkpoints": "best.keras and epoch_10.keras preserved; not a deployment model"
+}

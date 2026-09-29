@@ -1,0 +1,10 @@
+{
+  "seed": 20261002,
+  "checkpoints": "every 10 epochs and best weighted validation loss, up to 80 epochs",
+  "selection": "zero local negative triggers at all 20ms offsets, at least 3/4 local STOP detections at every 200ms phase, >=70% public clean STOP recall, <=1% other-word FP separately clean/noisy, zero validation synthetic background activations; maximize worst-phase local recall then mean local recall then mean public recall then lower threshold",
+  "test_access": "only after selection frozen",
+  "old_device_recordings": "excluded; random initial weights, wider DS-CNN",
+  "frontend": "subtract temporal mean independently for each mel band within every 49-frame window",
+  "architecture": "DS-CNN widths 16/24/32; 3-class output",
+  "public_replay": "up to 6000 unique examples per class; weight each public class to total 2000"
+}

@@ -1,0 +1,10 @@
+{
+  "seed": 2026092911,
+  "epochs": 60,
+  "early_stopping": "Stop after 12 epochs without validation-loss improvement",
+  "architecture": "DS-CNN 16/24/32, temporal-mean-centered 49x24 log-mel, same as V10",
+  "loss": "sparse categorical crossentropy; class-balanced sample weights; MSWC negatives and local supplement weighted x2",
+  "selection": "At least 80% SC STOP recall, <=0.5% SC other-word FP, at least 70% MSWC STOP recall, <=1% MSWC other-word FP, <=5% FP separately for SHORT/START/STARK/SHOP (zero when fewer than 20 validation clips), <=0.5% sampled continuous-negative window FP, zero validation background triggers, >=3/4 local STOP at every prediction phase and zero local negative triggers. Maximize minimum local phase detection, then average SC/MSWC recall, then lower threshold.",
+  "test": "Expanded public test loaded only after model and threshold frozen; reviewed local test is reused development data",
+  "runtime": "TFLite BUILTIN_REF, no desktop accelerator delegates"
+}

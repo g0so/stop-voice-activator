@@ -1,0 +1,29 @@
+/home/a/SIH/Voice/.venv/lib/python3.13/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/60
+1174/1174 - 24s - 21ms/step - accuracy: 0.8840 - loss: 0.3046 - val_accuracy: 0.9288 - val_loss: 0.2905 - learning_rate: 0.0010
+Epoch 2/60
+1174/1174 - 21s - 18ms/step - accuracy: 0.9188 - loss: 0.2167 - val_accuracy: 0.9465 - val_loss: 0.2723 - learning_rate: 0.0010
+Epoch 3/60
+1174/1174 - 19s - 16ms/step - accuracy: 0.9270 - loss: 0.1955 - val_accuracy: 0.9230 - val_loss: 0.2344 - learning_rate: 0.0010
+Epoch 4/60
+1174/1174 - 24s - 20ms/step - accuracy: 0.9316 - loss: 0.1826 - val_accuracy: 0.9614 - val_loss: 0.3375 - learning_rate: 0.0010
+Epoch 5/60
+1174/1174 - 29s - 25ms/step - accuracy: 0.9347 - loss: 0.1735 - val_accuracy: 0.9610 - val_loss: 0.2801 - learning_rate: 0.0010
+Epoch 6/60
+1174/1174 - 31s - 26ms/step - accuracy: 0.9368 - loss: 0.1673 - val_accuracy: 0.9655 - val_loss: 0.2803 - learning_rate: 0.0010
+Epoch 7/60
+1174/1174 - 26s - 22ms/step - accuracy: 0.9396 - loss: 0.1613 - val_accuracy: 0.9619 - val_loss: 0.2461 - learning_rate: 0.0010
+Epoch 8/60
+1174/1174 - 29s - 25ms/step - accuracy: 0.9410 - loss: 0.1576 - val_accuracy: 0.9595 - val_loss: 0.2296 - learning_rate: 0.0010
+Epoch 9/60
+1174/1174 - 28s - 24ms/step - accuracy: 0.9421 - loss: 0.1536 - val_accuracy: 0.9479 - val_loss: 0.2067 - learning_rate: 0.0010
+Epoch 10/60
+1174/1174 - 31s - 26ms/step - accuracy: 0.9428 - loss: 0.1508 - val_accuracy: 0.9574 - val_loss: 0.2175 - learning_rate: 0.0010
+Epoch 11/60
+1174/1174 - 27s - 23ms/step - accuracy: 0.9436 - loss: 0.1475 - val_accuracy: 0.9410 - val_loss: 0.1794 - learning_rate: 0.0010
+Epoch 12/60
+1174/1174 - 27s - 23ms/step - accuracy: 0.9451 - loss: 0.1433 - val_accuracy: 0.9627 - val_loss: 0.2217 - learning_rate: 0.0010
+Epoch 13/60
+1174/1174 - 27s - 23ms/step - accuracy: 0.9459 - loss: 0.1425 - val_accuracy: 0.9593 - val_loss: 0.2028 - learning_rate: 0.0010
+Epoch 14/60

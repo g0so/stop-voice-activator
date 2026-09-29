@@ -1,0 +1,18 @@
+{
+  "speaker": "s01",
+  "session": "20260928T184037_20363f3b",
+  "split": "train",
+  "source": "ESP32 INMP441",
+  "prompt_index": 2,
+  "prompt": "shop",
+  "label": "other_speech",
+  "wav": "02_shop_d35ba12601.wav",
+  "accepted": true,
+  "review": "user confirmed clear word once",
+  "sample_rate": 16000,
+  "duration_seconds": 5,
+  "keyword_timing": "unannotated; verify crop before training",
+  "peak": 7059,
+  "rms": 1056.23,
+  "clipped_samples": 0
+}

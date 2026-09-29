@@ -1,0 +1,155 @@
+/home/a/SIH/Voice/.venv/lib/python3.13/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/60
+1174/1174 - 11s - 9ms/step - accuracy: 0.8408 - loss: 0.3381 - val_accuracy: 0.9059 - val_loss: 0.8725 - learning_rate: 0.0010
+Epoch 2/60
+1174/1174 - 9s - 8ms/step - accuracy: 0.9018 - loss: 0.2219 - val_accuracy: 0.8889 - val_loss: 0.6250 - learning_rate: 0.0010
+Epoch 3/60
+1174/1174 - 9s - 7ms/step - accuracy: 0.9122 - loss: 0.1982 - val_accuracy: 0.9218 - val_loss: 0.6213 - learning_rate: 0.0010
+Epoch 4/60
+1174/1174 - 9s - 7ms/step - accuracy: 0.9201 - loss: 0.1838 - val_accuracy: 0.9218 - val_loss: 0.5182 - learning_rate: 0.0010
+Epoch 5/60
+1174/1174 - 9s - 7ms/step - accuracy: 0.9265 - loss: 0.1751 - val_accuracy: 0.9262 - val_loss: 0.4679 - learning_rate: 0.0010
+Epoch 6/60
+1174/1174 - 9s - 8ms/step - accuracy: 0.9300 - loss: 0.1624 - val_accuracy: 0.9015 - val_loss: 0.4380 - learning_rate: 0.0010
+Epoch 7/60
+1174/1174 - 9s - 7ms/step - accuracy: 0.9320 - loss: 0.1574 - val_accuracy: 0.9188 - val_loss: 0.4454 - learning_rate: 0.0010
+Epoch 8/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9355 - loss: 0.1509 - val_accuracy: 0.9389 - val_loss: 0.4853 - learning_rate: 0.0010
+Epoch 9/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9371 - loss: 0.1485 - val_accuracy: 0.9290 - val_loss: 0.4323 - learning_rate: 0.0010
+Epoch 10/60
+1174/1174 - 9s - 7ms/step - accuracy: 0.9378 - loss: 0.1447 - val_accuracy: 0.9398 - val_loss: 0.4190 - learning_rate: 0.0010
+Epoch 11/60
+1174/1174 - 9s - 7ms/step - accuracy: 0.9410 - loss: 0.1396 - val_accuracy: 0.9313 - val_loss: 0.3881 - learning_rate: 0.0010
+Epoch 12/60
+1174/1174 - 9s - 7ms/step - accuracy: 0.9421 - loss: 0.1367 - val_accuracy: 0.9210 - val_loss: 0.4007 - learning_rate: 0.0010
+Epoch 13/60
+1174/1174 - 9s - 7ms/step - accuracy: 0.9427 - loss: 0.1362 - val_accuracy: 0.9441 - val_loss: 0.4537 - learning_rate: 0.0010
+Epoch 14/60
+1174/1174 - 9s - 8ms/step - accuracy: 0.9451 - loss: 0.1318 - val_accuracy: 0.9384 - val_loss: 0.3611 - learning_rate: 0.0010
+Epoch 15/60
+1174/1174 - 9s - 7ms/step - accuracy: 0.9447 - loss: 0.1324 - val_accuracy: 0.9357 - val_loss: 0.3468 - learning_rate: 0.0010
+Epoch 16/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9456 - loss: 0.1305 - val_accuracy: 0.9425 - val_loss: 0.4082 - learning_rate: 0.0010
+Epoch 17/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9467 - loss: 0.1283 - val_accuracy: 0.9479 - val_loss: 0.3907 - learning_rate: 0.0010
+Epoch 18/60
+1174/1174 - 9s - 7ms/step - accuracy: 0.9485 - loss: 0.1259 - val_accuracy: 0.9468 - val_loss: 0.4011 - learning_rate: 0.0010
+Epoch 19/60
+1174/1174 - 9s - 7ms/step - accuracy: 0.9495 - loss: 0.1230 - val_accuracy: 0.9443 - val_loss: 0.3878 - learning_rate: 0.0010
+Epoch 20/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9502 - loss: 0.1221 - val_accuracy: 0.9486 - val_loss: 0.3589 - learning_rate: 0.0010
+Epoch 21/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9505 - loss: 0.1193 - val_accuracy: 0.9390 - val_loss: 0.3301 - learning_rate: 0.0010
+Epoch 22/60
+1174/1174 - 9s - 8ms/step - accuracy: 0.9512 - loss: 0.1204 - val_accuracy: 0.9399 - val_loss: 0.3501 - learning_rate: 0.0010
+Epoch 23/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9506 - loss: 0.1195 - val_accuracy: 0.9359 - val_loss: 0.3237 - learning_rate: 0.0010
+Epoch 24/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9516 - loss: 0.1184 - val_accuracy: 0.9499 - val_loss: 0.3823 - learning_rate: 0.0010
+Epoch 25/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9511 - loss: 0.1196 - val_accuracy: 0.9512 - val_loss: 0.3742 - learning_rate: 0.0010
+Epoch 26/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9515 - loss: 0.1182 - val_accuracy: 0.9519 - val_loss: 0.3977 - learning_rate: 0.0010
+Epoch 27/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9525 - loss: 0.1174 - val_accuracy: 0.9338 - val_loss: 0.3315 - learning_rate: 0.0010
+Epoch 28/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9516 - loss: 0.1169 - val_accuracy: 0.9427 - val_loss: 0.3313 - learning_rate: 0.0010
+Epoch 29/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9531 - loss: 0.1146 - val_accuracy: 0.9404 - val_loss: 0.3233 - learning_rate: 0.0010
+Epoch 30/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9531 - loss: 0.1135 - val_accuracy: 0.9402 - val_loss: 0.3436 - learning_rate: 0.0010
+Epoch 31/60
+1174/1174 - 9s - 8ms/step - accuracy: 0.9530 - loss: 0.1147 - val_accuracy: 0.9502 - val_loss: 0.3591 - learning_rate: 0.0010
+Epoch 32/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9539 - loss: 0.1133 - val_accuracy: 0.9368 - val_loss: 0.3247 - learning_rate: 0.0010
+Epoch 33/60
+1174/1174 - 9s - 7ms/step - accuracy: 0.9556 - loss: 0.1098 - val_accuracy: 0.9465 - val_loss: 0.3680 - learning_rate: 0.0010
+Epoch 34/60
+1174/1174 - 9s - 7ms/step - accuracy: 0.9548 - loss: 0.1107 - val_accuracy: 0.9418 - val_loss: 0.3324 - learning_rate: 0.0010
+Epoch 35/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9559 - loss: 0.1078 - val_accuracy: 0.9319 - val_loss: 0.3033 - learning_rate: 0.0010
+Epoch 36/60
+1174/1174 - 9s - 7ms/step - accuracy: 0.9538 - loss: 0.1119 - val_accuracy: 0.9505 - val_loss: 0.3874 - learning_rate: 0.0010
+Epoch 37/60
+1174/1174 - 9s - 8ms/step - accuracy: 0.9550 - loss: 0.1097 - val_accuracy: 0.9370 - val_loss: 0.2881 - learning_rate: 0.0010
+Epoch 38/60
+1174/1174 - 9s - 7ms/step - accuracy: 0.9551 - loss: 0.1083 - val_accuracy: 0.9316 - val_loss: 0.2941 - learning_rate: 0.0010
+Epoch 39/60
+1174/1174 - 9s - 7ms/step - accuracy: 0.9549 - loss: 0.1098 - val_accuracy: 0.9490 - val_loss: 0.4128 - learning_rate: 0.0010
+Epoch 40/60
+1174/1174 - 10s - 8ms/step - accuracy: 0.9552 - loss: 0.1094 - val_accuracy: 0.9502 - val_loss: 0.3885 - learning_rate: 0.0010
+Epoch 41/60
+1174/1174 - 9s - 8ms/step - accuracy: 0.9563 - loss: 0.1077 - val_accuracy: 0.9447 - val_loss: 0.3276 - learning_rate: 0.0010
+Epoch 42/60
+1174/1174 - 9s - 8ms/step - accuracy: 0.9564 - loss: 0.1064 - val_accuracy: 0.9496 - val_loss: 0.4073 - learning_rate: 0.0010
+Epoch 43/60
+1174/1174 - 10s - 8ms/step - accuracy: 0.9556 - loss: 0.1087 - val_accuracy: 0.9476 - val_loss: 0.3313 - learning_rate: 0.0010
+Epoch 44/60
+1174/1174 - 9s - 8ms/step - accuracy: 0.9557 - loss: 0.1083 - val_accuracy: 0.9493 - val_loss: 0.3356 - learning_rate: 5.0000e-04
+Epoch 45/60
+1174/1174 - 9s - 8ms/step - accuracy: 0.9558 - loss: 0.1080 - val_accuracy: 0.9415 - val_loss: 0.2995 - learning_rate: 5.0000e-04
+Epoch 46/60
+1174/1174 - 9s - 8ms/step - accuracy: 0.9558 - loss: 0.1068 - val_accuracy: 0.9476 - val_loss: 0.3253 - learning_rate: 5.0000e-04
+Epoch 47/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9560 - loss: 0.1075 - val_accuracy: 0.9464 - val_loss: 0.3278 - learning_rate: 5.0000e-04
+Epoch 48/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9567 - loss: 0.1071 - val_accuracy: 0.9493 - val_loss: 0.3110 - learning_rate: 5.0000e-04
+Epoch 49/60
+1174/1174 - 8s - 7ms/step - accuracy: 0.9564 - loss: 0.1061 - val_accuracy: 0.9507 - val_loss: 0.3375 - learning_rate: 5.0000e-04
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1790676422.551845       5 devices.cc:76] Number of eligible GPUs (core count >= 8, compute capability >= 0.0): 0 (Note: TensorFlow was not compiled with CUDA or ROCm support)
+I0000 00:00:1790676422.552836       5 single_machine.cc:376] Starting new session
+WARNING:absl:Please consider providing the trackable_obj argument in the from_concrete_functions. Providing without the trackable_obj argument is deprecated and it will use the deprecated conversion path.
+I0000 00:00:1790676422.592973       5 devices.cc:76] Number of eligible GPUs (core count >= 8, compute capability >= 0.0): 0 (Note: TensorFlow was not compiled with CUDA or ROCm support)
+I0000 00:00:1790676422.593108       5 single_machine.cc:376] Starting new session
+/home/a/SIH/Voice/.venv/lib/python3.13/site-packages/tensorflow/lite/python/convert.py:863: UserWarning: Statistics for quantized inputs were expected, but not specified; continuing anyway.
+  warnings.warn(
+W0000 00:00:1790676422.635214       5 tf_tfl_flatbuffer_helpers.cc:364] Ignored output_format.
+W0000 00:00:1790676422.635249       5 tf_tfl_flatbuffer_helpers.cc:367] Ignored drop_control_dependency.
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+/home/a/SIH/Voice/.venv/lib/python3.13/site-packages/tensorflow/lite/python/interpreter.py:457: UserWarning:     Warning: tf.lite.Interpreter is deprecated and is scheduled for deletion in
+    TF 2.20. Please use the LiteRT interpreter from the ai_edge_litert package.
+    See the [migration guide](https://ai.google.dev/edge/litert/migration)
+    for details.
+    
+  warnings.warn(_INTERPRETER_DELETION_WARNING)
+CHECKPOINT best.keras eligible 0
+I0000 00:00:1790676434.064347       5 devices.cc:76] Number of eligible GPUs (core count >= 8, compute capability >= 0.0): 0 (Note: TensorFlow was not compiled with CUDA or ROCm support)
+I0000 00:00:1790676434.064490       5 single_machine.cc:376] Starting new session
+WARNING:absl:Please consider providing the trackable_obj argument in the from_concrete_functions. Providing without the trackable_obj argument is deprecated and it will use the deprecated conversion path.
+I0000 00:00:1790676434.101053       5 devices.cc:76] Number of eligible GPUs (core count >= 8, compute capability >= 0.0): 0 (Note: TensorFlow was not compiled with CUDA or ROCm support)
+I0000 00:00:1790676434.101181       5 single_machine.cc:376] Starting new session
+W0000 00:00:1790676434.139819       5 tf_tfl_flatbuffer_helpers.cc:364] Ignored output_format.
+W0000 00:00:1790676434.139865       5 tf_tfl_flatbuffer_helpers.cc:367] Ignored drop_control_dependency.
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+CHECKPOINT epoch_10.keras eligible 0
+I0000 00:00:1790676445.451238       5 devices.cc:76] Number of eligible GPUs (core count >= 8, compute capability >= 0.0): 0 (Note: TensorFlow was not compiled with CUDA or ROCm support)
+I0000 00:00:1790676445.451401       5 single_machine.cc:376] Starting new session
+WARNING:absl:Please consider providing the trackable_obj argument in the from_concrete_functions. Providing without the trackable_obj argument is deprecated and it will use the deprecated conversion path.
+I0000 00:00:1790676445.499818       5 devices.cc:76] Number of eligible GPUs (core count >= 8, compute capability >= 0.0): 0 (Note: TensorFlow was not compiled with CUDA or ROCm support)
+I0000 00:00:1790676445.499963       5 single_machine.cc:376] Starting new session
+W0000 00:00:1790676445.541565       5 tf_tfl_flatbuffer_helpers.cc:364] Ignored output_format.
+W0000 00:00:1790676445.541617       5 tf_tfl_flatbuffer_helpers.cc:367] Ignored drop_control_dependency.
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+CHECKPOINT epoch_20.keras eligible 0
+I0000 00:00:1790676456.837551       5 devices.cc:76] Number of eligible GPUs (core count >= 8, compute capability >= 0.0): 0 (Note: TensorFlow was not compiled with CUDA or ROCm support)
+I0000 00:00:1790676456.837690       5 single_machine.cc:376] Starting new session
+WARNING:absl:Please consider providing the trackable_obj argument in the from_concrete_functions. Providing without the trackable_obj argument is deprecated and it will use the deprecated conversion path.
+I0000 00:00:1790676456.876490       5 devices.cc:76] Number of eligible GPUs (core count >= 8, compute capability >= 0.0): 0 (Note: TensorFlow was not compiled with CUDA or ROCm support)
+I0000 00:00:1790676456.876647       5 single_machine.cc:376] Starting new session
+W0000 00:00:1790676456.920427       5 tf_tfl_flatbuffer_helpers.cc:364] Ignored output_format.
+W0000 00:00:1790676456.920492       5 tf_tfl_flatbuffer_helpers.cc:367] Ignored drop_control_dependency.
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+CHECKPOINT epoch_30.keras eligible 0
+I0000 00:00:1790676468.216485       5 devices.cc:76] Number of eligible GPUs (core count >= 8, compute capability >= 0.0): 0 (Note: TensorFlow was not compiled with CUDA or ROCm support)
+I0000 00:00:1790676468.216682       5 single_machine.cc:376] Starting new session
+WARNING:absl:Please consider providing the trackable_obj argument in the from_concrete_functions. Providing without the trackable_obj argument is deprecated and it will use the deprecated conversion path.
+I0000 00:00:1790676468.254530       5 devices.cc:76] Number of eligible GPUs (core count >= 8, compute capability >= 0.0): 0 (Note: TensorFlow was not compiled with CUDA or ROCm support)
+I0000 00:00:1790676468.254649       5 single_machine.cc:376] Starting new session
+W0000 00:00:1790676468.293703       5 tf_tfl_flatbuffer_helpers.cc:364] Ignored output_format.
+W0000 00:00:1790676468.293746       5 tf_tfl_flatbuffer_helpers.cc:367] Ignored drop_control_dependency.
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+CHECKPOINT epoch_40.keras eligible 0
+REJECTED: expanded test remains unscored.

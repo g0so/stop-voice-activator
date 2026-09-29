@@ -1,0 +1,28 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.env.*
+!.env.example
+/work/*
+!/work/.gitkeep
+/outputs/dataset/expanded_public/
+/outputs/dataset/public/
+/outputs/dataset/raw/
+/outputs/dataset/device_adaptation/
+/outputs/dataset/confusables/
+*.npy
+*.npz
+*.tar
+*.tar.gz
+*.zip
+*.partial
+*.bin
+*.elf
+*.map
+*.so
+/build/
+# Keep small, versioned .tflite/.keras files and complete firmware source in Git.
+# Keep the explicitly curated reviewed_restart audio and fan_noise_new.wav.

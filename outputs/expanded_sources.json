@@ -1,0 +1,7 @@
+[
+ {"name":"speech_commands_v002","file":"speech_commands_v0.02.tar.gz","url":"https://storage.googleapis.com/download.tensorflow.org/data/speech_commands_v0.02.tar.gz","size":2428923189,"algorithm":"md5","checksum":"6b74f3901214cb2c2934e98196829835"},
+ {"name":"mswc_metadata","file":"mswc_en_hf_splits.tar.gz","url":"https://huggingface.co/datasets/MLCommons/ml_spoken_words/resolve/main/data/splits/en/splits.tar.gz","size":382747534,"algorithm":"sha256","checksum":"11c773dc47fece8993693798414f04475e19d596671e1742a3dd040e66d6cbce"},
+ {"name":"mswc_shop_short","file":"mswc_en_train_63.tar.gz","url":"https://huggingface.co/datasets/MLCommons/ml_spoken_words/resolve/main/data/opus/en/train/audio/63.tar.gz","size":344609771,"algorithm":"sha256","checksum":"24c7332657a17f1e8ba6f57500ce960b1cab40d3b3bbd65b9ba2cb4fd67bcbc5"},
+ {"name":"mswc_start_stop","file":"mswc_en_train_66.tar.gz","url":"https://huggingface.co/datasets/MLCommons/ml_spoken_words/resolve/main/data/opus/en/train/audio/66.tar.gz","size":362398003,"algorithm":"sha256","checksum":"bb8e3cb000e139694a51d431cb35f82aede555451dff5ffdb35556e10b908dcc"},
+ {"name":"librispeech_dev_clean","file":"librispeech_dev_clean.tar.gz","url":"https://openslr.elda.org/resources/12/dev-clean.tar.gz","algorithm":"md5","checksum":"42e2234ba48799c1f50f24a7926300a1"}
+]

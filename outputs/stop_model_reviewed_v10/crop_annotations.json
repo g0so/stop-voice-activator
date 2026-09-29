@@ -1,0 +1,170 @@
+[
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/01_stop_a2fe4407dc.wav",
+    "word": "stop",
+    "split": "train",
+    "start_seconds": 0.7655625,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/02_shop_7a644b7c70.wav",
+    "word": "shop",
+    "split": "train",
+    "start_seconds": 1.7875,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/03_stop_9ce072c60b.wav",
+    "word": "stop",
+    "split": "train",
+    "start_seconds": 1.182125,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/04_start_e0ae4755ee.wav",
+    "word": "start",
+    "split": "train",
+    "start_seconds": 0.714,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/05_stop_7aeaf86098.wav",
+    "word": "stop",
+    "split": "train",
+    "start_seconds": 1.180125,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/06_shit_f358208fca.wav",
+    "word": "shit",
+    "split": "train",
+    "start_seconds": 0.7863125,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/07_stop_1e25120a3b.wav",
+    "word": "stop",
+    "split": "train",
+    "start_seconds": 1.416875,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/08_shop_032a49ae27.wav",
+    "word": "shop",
+    "split": "train",
+    "start_seconds": 0.872375,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/01_stop_49296f62e1.wav",
+    "word": "stop",
+    "split": "train",
+    "start_seconds": 0.4951875,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/02_shop_d35ba12601.wav",
+    "word": "shop",
+    "split": "train",
+    "start_seconds": 0.7771875,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/03_stop_8d50427b96.wav",
+    "word": "stop",
+    "split": "train",
+    "start_seconds": 0.9095,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/04_start_bd932e1009.wav",
+    "word": "start",
+    "split": "train",
+    "start_seconds": 0.7919375,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/05_stop_a787f51ba4.wav",
+    "word": "stop",
+    "split": "train",
+    "start_seconds": 1.2120625,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/06_shit_d1a473afc9.wav",
+    "word": "shit",
+    "split": "train",
+    "start_seconds": 0.7291875,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/07_stop_cbb669a349.wav",
+    "word": "stop",
+    "split": "train",
+    "start_seconds": 0.91275,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/08_shop_353c305e6e.wav",
+    "word": "shop",
+    "split": "train",
+    "start_seconds": 0.9440625,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/01_stop_bdb5958cd1.wav",
+    "word": "stop",
+    "split": "validation",
+    "start_seconds": 0.6483125,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/02_shop_d30e03f435.wav",
+    "word": "shop",
+    "split": "validation",
+    "start_seconds": 0.787625,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/03_stop_2bce7347e8.wav",
+    "word": "stop",
+    "split": "validation",
+    "start_seconds": 1.1019375,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/04_start_ea47d9947f.wav",
+    "word": "start",
+    "split": "validation",
+    "start_seconds": 1.0693125,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/05_stop_43892541b2.wav",
+    "word": "stop",
+    "split": "validation",
+    "start_seconds": 0.941,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/06_shit_7a3f81667f.wav",
+    "word": "shit",
+    "split": "validation",
+    "start_seconds": 0.7534375,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/07_stop_620437ae7d.wav",
+    "word": "stop",
+    "split": "validation",
+    "start_seconds": 0.849875,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  },
+  {
+    "file": "/home/a/SIH/Voice/outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/08_shop_69a0ebdad6.wav",
+    "word": "shop",
+    "split": "validation",
+    "start_seconds": 0.741625,
+    "method": "automatic band-limited energy peak; user confirmed full recording"
+  }
+]

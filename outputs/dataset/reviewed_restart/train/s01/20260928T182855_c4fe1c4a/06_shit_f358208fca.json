@@ -1,0 +1,18 @@
+{
+  "speaker": "s01",
+  "session": "20260928T182855_c4fe1c4a",
+  "split": "train",
+  "source": "ESP32 INMP441",
+  "prompt_index": 6,
+  "prompt": "shit",
+  "label": "other_speech",
+  "wav": "06_shit_f358208fca.wav",
+  "accepted": true,
+  "review": "user confirmed clear word once",
+  "sample_rate": 16000,
+  "duration_seconds": 5,
+  "keyword_timing": "unannotated; verify crop before training",
+  "peak": 7159,
+  "rms": 1168.22,
+  "clipped_samples": 0
+}

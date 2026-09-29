@@ -1,0 +1,64 @@
+/home/a/SIH/Voice/.venv/lib/python3.13/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/40
+1174/1174 - 11s - 9ms/step - accuracy: 0.9389 - loss: 0.1684 - val_accuracy: 0.9587 - val_loss: 0.2494 - learning_rate: 3.0000e-04
+Epoch 2/40
+1174/1174 - 9s - 7ms/step - accuracy: 0.9408 - loss: 0.1604 - val_accuracy: 0.9626 - val_loss: 0.2796 - learning_rate: 3.0000e-04
+Epoch 3/40
+1174/1174 - 9s - 8ms/step - accuracy: 0.9415 - loss: 0.1580 - val_accuracy: 0.9635 - val_loss: 0.2750 - learning_rate: 3.0000e-04
+Epoch 4/40
+1174/1174 - 9s - 8ms/step - accuracy: 0.9414 - loss: 0.1580 - val_accuracy: 0.9598 - val_loss: 0.2426 - learning_rate: 3.0000e-04
+Epoch 5/40
+1174/1174 - 8s - 7ms/step - accuracy: 0.9426 - loss: 0.1550 - val_accuracy: 0.9556 - val_loss: 0.2139 - learning_rate: 3.0000e-04
+Epoch 6/40
+1174/1174 - 8s - 7ms/step - accuracy: 0.9433 - loss: 0.1541 - val_accuracy: 0.9619 - val_loss: 0.2590 - learning_rate: 3.0000e-04
+Epoch 7/40
+1174/1174 - 13s - 11ms/step - accuracy: 0.9432 - loss: 0.1532 - val_accuracy: 0.9605 - val_loss: 0.2469 - learning_rate: 3.0000e-04
+Epoch 8/40
+1174/1174 - 14s - 12ms/step - accuracy: 0.9443 - loss: 0.1508 - val_accuracy: 0.9597 - val_loss: 0.2290 - learning_rate: 3.0000e-04
+Epoch 9/40
+1174/1174 - 11s - 9ms/step - accuracy: 0.9451 - loss: 0.1493 - val_accuracy: 0.9606 - val_loss: 0.2471 - learning_rate: 3.0000e-04
+Epoch 10/40
+1174/1174 - 11s - 9ms/step - accuracy: 0.9444 - loss: 0.1491 - val_accuracy: 0.9647 - val_loss: 0.2831 - learning_rate: 3.0000e-04
+Epoch 11/40
+1174/1174 - 9s - 8ms/step - accuracy: 0.9449 - loss: 0.1492 - val_accuracy: 0.9592 - val_loss: 0.2365 - learning_rate: 3.0000e-04
+Epoch 12/40
+1174/1174 - 9s - 8ms/step - accuracy: 0.9452 - loss: 0.1469 - val_accuracy: 0.9628 - val_loss: 0.2567 - learning_rate: 1.5000e-04
+Epoch 13/40
+1174/1174 - 9s - 8ms/step - accuracy: 0.9449 - loss: 0.1468 - val_accuracy: 0.9638 - val_loss: 0.2629 - learning_rate: 1.5000e-04
+Epoch 14/40
+1174/1174 - 10s - 8ms/step - accuracy: 0.9450 - loss: 0.1460 - val_accuracy: 0.9634 - val_loss: 0.2547 - learning_rate: 1.5000e-04
+Epoch 15/40
+1174/1174 - 10s - 8ms/step - accuracy: 0.9458 - loss: 0.1457 - val_accuracy: 0.9631 - val_loss: 0.2600 - learning_rate: 1.5000e-04
+Epoch 16/40
+1174/1174 - 10s - 8ms/step - accuracy: 0.9456 - loss: 0.1462 - val_accuracy: 0.9631 - val_loss: 0.2470 - learning_rate: 1.5000e-04
+Epoch 17/40
+1174/1174 - 10s - 9ms/step - accuracy: 0.9459 - loss: 0.1450 - val_accuracy: 0.9628 - val_loss: 0.2535 - learning_rate: 1.5000e-04
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1790676894.178446       5 devices.cc:76] Number of eligible GPUs (core count >= 8, compute capability >= 0.0): 0 (Note: TensorFlow was not compiled with CUDA or ROCm support)
+I0000 00:00:1790676894.178674       5 single_machine.cc:376] Starting new session
+WARNING:absl:Please consider providing the trackable_obj argument in the from_concrete_functions. Providing without the trackable_obj argument is deprecated and it will use the deprecated conversion path.
+I0000 00:00:1790676894.299962       5 devices.cc:76] Number of eligible GPUs (core count >= 8, compute capability >= 0.0): 0 (Note: TensorFlow was not compiled with CUDA or ROCm support)
+I0000 00:00:1790676894.300161       5 single_machine.cc:376] Starting new session
+/home/a/SIH/Voice/.venv/lib/python3.13/site-packages/tensorflow/lite/python/convert.py:863: UserWarning: Statistics for quantized inputs were expected, but not specified; continuing anyway.
+  warnings.warn(
+W0000 00:00:1790676894.363094       5 tf_tfl_flatbuffer_helpers.cc:364] Ignored output_format.
+W0000 00:00:1790676894.363131       5 tf_tfl_flatbuffer_helpers.cc:367] Ignored drop_control_dependency.
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+/home/a/SIH/Voice/.venv/lib/python3.13/site-packages/tensorflow/lite/python/interpreter.py:457: UserWarning:     Warning: tf.lite.Interpreter is deprecated and is scheduled for deletion in
+    TF 2.20. Please use the LiteRT interpreter from the ai_edge_litert package.
+    See the [migration guide](https://ai.google.dev/edge/litert/migration)
+    for details.
+    
+  warnings.warn(_INTERPRETER_DELETION_WARNING)
+CHECKPOINT best.keras eligible 0
+I0000 00:00:1790676906.174307       5 devices.cc:76] Number of eligible GPUs (core count >= 8, compute capability >= 0.0): 0 (Note: TensorFlow was not compiled with CUDA or ROCm support)
+I0000 00:00:1790676906.174512       5 single_machine.cc:376] Starting new session
+WARNING:absl:Please consider providing the trackable_obj argument in the from_concrete_functions. Providing without the trackable_obj argument is deprecated and it will use the deprecated conversion path.
+I0000 00:00:1790676906.212877       5 devices.cc:76] Number of eligible GPUs (core count >= 8, compute capability >= 0.0): 0 (Note: TensorFlow was not compiled with CUDA or ROCm support)
+I0000 00:00:1790676906.213028       5 single_machine.cc:376] Starting new session
+W0000 00:00:1790676906.253784       5 tf_tfl_flatbuffer_helpers.cc:364] Ignored output_format.
+W0000 00:00:1790676906.253833       5 tf_tfl_flatbuffer_helpers.cc:367] Ignored drop_control_dependency.
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+CHECKPOINT epoch_10.keras eligible 0
+REJECTED: expanded test remains unscored.

@@ -1,0 +1,218 @@
+{
+  "train_sessions": [
+    "20260928T182855_c4fe1c4a",
+    "20260928T184037_20363f3b"
+  ],
+  "validation_sessions": [
+    "20260928T184901_b23bf895"
+  ],
+  "test_sessions": [
+    "20260928T185826_5c7b6dbb"
+  ],
+  "recordings": {
+    "train": [
+      {
+        "wav": "outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/01_stop_a2fe4407dc.wav",
+        "metadata": "outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/01_stop_a2fe4407dc.json",
+        "word": "stop",
+        "session": "20260928T182855_c4fe1c4a"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/02_shop_7a644b7c70.wav",
+        "metadata": "outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/02_shop_7a644b7c70.json",
+        "word": "shop",
+        "session": "20260928T182855_c4fe1c4a"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/03_stop_9ce072c60b.wav",
+        "metadata": "outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/03_stop_9ce072c60b.json",
+        "word": "stop",
+        "session": "20260928T182855_c4fe1c4a"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/04_start_e0ae4755ee.wav",
+        "metadata": "outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/04_start_e0ae4755ee.json",
+        "word": "start",
+        "session": "20260928T182855_c4fe1c4a"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/05_stop_7aeaf86098.wav",
+        "metadata": "outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/05_stop_7aeaf86098.json",
+        "word": "stop",
+        "session": "20260928T182855_c4fe1c4a"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/06_shit_f358208fca.wav",
+        "metadata": "outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/06_shit_f358208fca.json",
+        "word": "shit",
+        "session": "20260928T182855_c4fe1c4a"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/07_stop_1e25120a3b.wav",
+        "metadata": "outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/07_stop_1e25120a3b.json",
+        "word": "stop",
+        "session": "20260928T182855_c4fe1c4a"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/08_shop_032a49ae27.wav",
+        "metadata": "outputs/dataset/reviewed_restart/train/s01/20260928T182855_c4fe1c4a/08_shop_032a49ae27.json",
+        "word": "shop",
+        "session": "20260928T182855_c4fe1c4a"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/01_stop_49296f62e1.wav",
+        "metadata": "outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/01_stop_49296f62e1.json",
+        "word": "stop",
+        "session": "20260928T184037_20363f3b"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/02_shop_d35ba12601.wav",
+        "metadata": "outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/02_shop_d35ba12601.json",
+        "word": "shop",
+        "session": "20260928T184037_20363f3b"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/03_stop_8d50427b96.wav",
+        "metadata": "outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/03_stop_8d50427b96.json",
+        "word": "stop",
+        "session": "20260928T184037_20363f3b"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/04_start_bd932e1009.wav",
+        "metadata": "outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/04_start_bd932e1009.json",
+        "word": "start",
+        "session": "20260928T184037_20363f3b"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/05_stop_a787f51ba4.wav",
+        "metadata": "outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/05_stop_a787f51ba4.json",
+        "word": "stop",
+        "session": "20260928T184037_20363f3b"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/06_shit_d1a473afc9.wav",
+        "metadata": "outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/06_shit_d1a473afc9.json",
+        "word": "shit",
+        "session": "20260928T184037_20363f3b"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/07_stop_cbb669a349.wav",
+        "metadata": "outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/07_stop_cbb669a349.json",
+        "word": "stop",
+        "session": "20260928T184037_20363f3b"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/08_shop_353c305e6e.wav",
+        "metadata": "outputs/dataset/reviewed_restart/train/s01/20260928T184037_20363f3b/08_shop_353c305e6e.json",
+        "word": "shop",
+        "session": "20260928T184037_20363f3b"
+      }
+    ],
+    "validation": [
+      {
+        "wav": "outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/01_stop_bdb5958cd1.wav",
+        "metadata": "outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/01_stop_bdb5958cd1.json",
+        "word": "stop",
+        "session": "20260928T184901_b23bf895"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/02_shop_d30e03f435.wav",
+        "metadata": "outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/02_shop_d30e03f435.json",
+        "word": "shop",
+        "session": "20260928T184901_b23bf895"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/03_stop_2bce7347e8.wav",
+        "metadata": "outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/03_stop_2bce7347e8.json",
+        "word": "stop",
+        "session": "20260928T184901_b23bf895"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/04_start_ea47d9947f.wav",
+        "metadata": "outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/04_start_ea47d9947f.json",
+        "word": "start",
+        "session": "20260928T184901_b23bf895"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/05_stop_43892541b2.wav",
+        "metadata": "outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/05_stop_43892541b2.json",
+        "word": "stop",
+        "session": "20260928T184901_b23bf895"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/06_shit_7a3f81667f.wav",
+        "metadata": "outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/06_shit_7a3f81667f.json",
+        "word": "shit",
+        "session": "20260928T184901_b23bf895"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/07_stop_620437ae7d.wav",
+        "metadata": "outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/07_stop_620437ae7d.json",
+        "word": "stop",
+        "session": "20260928T184901_b23bf895"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/08_shop_69a0ebdad6.wav",
+        "metadata": "outputs/dataset/reviewed_restart/validation/s01/20260928T184901_b23bf895/08_shop_69a0ebdad6.json",
+        "word": "shop",
+        "session": "20260928T184901_b23bf895"
+      }
+    ],
+    "test": [
+      {
+        "wav": "outputs/dataset/reviewed_restart/test/s01/20260928T185826_5c7b6dbb/01_stop_527e2ac862.wav",
+        "metadata": "outputs/dataset/reviewed_restart/test/s01/20260928T185826_5c7b6dbb/01_stop_527e2ac862.json",
+        "word": "stop",
+        "session": "20260928T185826_5c7b6dbb"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/test/s01/20260928T185826_5c7b6dbb/02_shop_21d6aaa8ba.wav",
+        "metadata": "outputs/dataset/reviewed_restart/test/s01/20260928T185826_5c7b6dbb/02_shop_21d6aaa8ba.json",
+        "word": "shop",
+        "session": "20260928T185826_5c7b6dbb"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/test/s01/20260928T185826_5c7b6dbb/03_stop_63c5738739.wav",
+        "metadata": "outputs/dataset/reviewed_restart/test/s01/20260928T185826_5c7b6dbb/03_stop_63c5738739.json",
+        "word": "stop",
+        "session": "20260928T185826_5c7b6dbb"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/test/s01/20260928T185826_5c7b6dbb/04_start_eed9104c51.wav",
+        "metadata": "outputs/dataset/reviewed_restart/test/s01/20260928T185826_5c7b6dbb/04_start_eed9104c51.json",
+        "word": "start",
+        "session": "20260928T185826_5c7b6dbb"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/test/s01/20260928T185826_5c7b6dbb/05_stop_a75fb8d846.wav",
+        "metadata": "outputs/dataset/reviewed_restart/test/s01/20260928T185826_5c7b6dbb/05_stop_a75fb8d846.json",
+        "word": "stop",
+        "session": "20260928T185826_5c7b6dbb"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/test/s01/20260928T185826_5c7b6dbb/06_shit_1c59dacea8.wav",
+        "metadata": "outputs/dataset/reviewed_restart/test/s01/20260928T185826_5c7b6dbb/06_shit_1c59dacea8.json",
+        "word": "shit",
+        "session": "20260928T185826_5c7b6dbb"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/test/s01/20260928T185826_5c7b6dbb/07_stop_caf9e6b113.wav",
+        "metadata": "outputs/dataset/reviewed_restart/test/s01/20260928T185826_5c7b6dbb/07_stop_caf9e6b113.json",
+        "word": "stop",
+        "session": "20260928T185826_5c7b6dbb"
+      },
+      {
+        "wav": "outputs/dataset/reviewed_restart/test/s01/20260928T185826_5c7b6dbb/08_shop_a8ae1957d0.wav",
+        "metadata": "outputs/dataset/reviewed_restart/test/s01/20260928T185826_5c7b6dbb/08_shop_a8ae1957d0.json",
+        "word": "shop",
+        "session": "20260928T185826_5c7b6dbb"
+      }
+    ]
+  },
+  "rules": [
+    "Only these complete, reviewed restart sessions are selected; old device recordings and incomplete sessions are excluded.",
+    "Training recordings may be augmented; their copies remain in training.",
+    "Validation recordings may select checkpoints and detection settings but are excluded from gradient training and quantization calibration.",
+    "Test recordings may be evaluated only after model and settings are frozen. File integrity checks are already completed."
+  ]
+}

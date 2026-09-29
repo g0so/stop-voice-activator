@@ -1,0 +1,302 @@
+{
+  "background": {
+    "float": {
+      "accuracy": 1.0,
+      "confusion_matrix": [
+        [
+          500,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "keyword_detected": 0,
+      "keyword_total": 0,
+      "keyword_missed": 0,
+      "keyword_recall": 0.0,
+      "keyword_precision": 0.0,
+      "other_speech_false_activations": 0,
+      "other_speech_total": 0,
+      "synthetic_background_false_activations": 0,
+      "synthetic_background_total": 500
+    },
+    "int8": {
+      "accuracy": 1.0,
+      "confusion_matrix": [
+        [
+          500,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "keyword_detected": 0,
+      "keyword_total": 0,
+      "keyword_missed": 0,
+      "keyword_recall": 0.0,
+      "keyword_precision": 0.0,
+      "other_speech_false_activations": 0,
+      "other_speech_total": 0,
+      "synthetic_background_false_activations": 0,
+      "synthetic_background_total": 500
+    }
+  },
+  "librispeech_dev_clean": {
+    "float": {
+      "accuracy": 0.9963985594237695,
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          830,
+          2
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "keyword_detected": 0,
+      "keyword_total": 0,
+      "keyword_missed": 0,
+      "keyword_recall": 0.0,
+      "keyword_precision": 0.0,
+      "other_speech_false_activations": 2,
+      "other_speech_total": 833,
+      "synthetic_background_false_activations": 0,
+      "synthetic_background_total": 0
+    },
+    "int8": {
+      "accuracy": 0.9963985594237695,
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          830,
+          2
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "keyword_detected": 0,
+      "keyword_total": 0,
+      "keyword_missed": 0,
+      "keyword_recall": 0.0,
+      "keyword_precision": 0.0,
+      "other_speech_false_activations": 2,
+      "other_speech_total": 833,
+      "synthetic_background_false_activations": 0,
+      "synthetic_background_total": 0
+    }
+  },
+  "mswc": {
+    "float": {
+      "accuracy": 0.8726591760299626,
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2149,
+          317
+        ],
+        [
+          0,
+          23,
+          181
+        ]
+      ],
+      "keyword_detected": 181,
+      "keyword_total": 204,
+      "keyword_missed": 23,
+      "keyword_recall": 0.8872549019607843,
+      "keyword_precision": 0.3634538152610442,
+      "other_speech_false_activations": 317,
+      "other_speech_total": 2466,
+      "synthetic_background_false_activations": 0,
+      "synthetic_background_total": 0
+    },
+    "int8": {
+      "accuracy": 0.8808988764044944,
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2171,
+          295
+        ],
+        [
+          0,
+          23,
+          181
+        ]
+      ],
+      "keyword_detected": 182,
+      "keyword_total": 204,
+      "keyword_missed": 22,
+      "keyword_recall": 0.8921568627450981,
+      "keyword_precision": 0.3427495291902072,
+      "other_speech_false_activations": 349,
+      "other_speech_total": 2466,
+      "synthetic_background_false_activations": 0,
+      "synthetic_background_total": 0
+    }
+  },
+  "reviewed_device": {
+    "float": {
+      "accuracy": 0.625,
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          0,
+          4
+        ]
+      ],
+      "keyword_detected": 4,
+      "keyword_total": 4,
+      "keyword_missed": 0,
+      "keyword_recall": 1.0,
+      "keyword_precision": 0.5714285714285714,
+      "other_speech_false_activations": 3,
+      "other_speech_total": 4,
+      "synthetic_background_false_activations": 0,
+      "synthetic_background_total": 0
+    },
+    "int8": {
+      "accuracy": 0.625,
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          0,
+          4
+        ]
+      ],
+      "keyword_detected": 4,
+      "keyword_total": 4,
+      "keyword_missed": 0,
+      "keyword_recall": 1.0,
+      "keyword_precision": 0.5714285714285714,
+      "other_speech_false_activations": 3,
+      "other_speech_total": 4,
+      "synthetic_background_false_activations": 0,
+      "synthetic_background_total": 0
+    }
+  },
+  "speech_commands_v002": {
+    "float": {
+      "accuracy": 0.9445020333306754,
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          113,
+          11500,
+          476
+        ],
+        [
+          4,
+          103,
+          345
+        ]
+      ],
+      "keyword_detected": 345,
+      "keyword_total": 452,
+      "keyword_missed": 107,
+      "keyword_recall": 0.7632743362831859,
+      "keyword_precision": 0.4233128834355828,
+      "other_speech_false_activations": 470,
+      "other_speech_total": 12089,
+      "synthetic_background_false_activations": 0,
+      "synthetic_background_total": 0
+    },
+    "int8": {
+      "accuracy": 0.948249740850012,
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          111,
+          11552,
+          426
+        ],
+        [
+          4,
+          108,
+          340
+        ]
+      ],
+      "keyword_detected": 350,
+      "keyword_total": 452,
+      "keyword_missed": 102,
+      "keyword_recall": 0.7743362831858407,
+      "keyword_precision": 0.4093567251461988,
+      "other_speech_false_activations": 505,
+      "other_speech_total": 12089,
+      "synthetic_background_false_activations": 0,
+      "synthetic_background_total": 0
+    }
+  }
+}

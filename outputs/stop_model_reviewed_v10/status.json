@@ -1,0 +1,12 @@
+{
+  "status": "evaluated",
+  "physical_board_test": "original V10 failed self-test delta 20; corrected V10-R1 pending upload",
+  "arduino_compile": "V10-R1 passed",
+  "host_frontend_parity": "passed with reference runtime",
+  "sketch": "/home/a/SIH/Voice/outputs/live_stop_reviewed_v10/live_stop_reviewed_v10.ino",
+  "runtime_reference_correction": "desktop acceleration reproduced delta 20; BUILTIN_REF expected outputs installed; unchanged model and threshold",
+  "measured_board_inference_us_range": [
+    26622,
+    27025
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "status": "rejected on validation",
+  "test_evaluated": false,
+  "next": "Inspect validation errors; do not promote failed checkpoint or tune on test data."
+}

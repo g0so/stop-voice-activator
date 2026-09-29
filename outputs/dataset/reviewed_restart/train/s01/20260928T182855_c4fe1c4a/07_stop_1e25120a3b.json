@@ -1,0 +1,18 @@
+{
+  "speaker": "s01",
+  "session": "20260928T182855_c4fe1c4a",
+  "split": "train",
+  "source": "ESP32 INMP441",
+  "prompt_index": 7,
+  "prompt": "stop",
+  "label": "stop",
+  "wav": "07_stop_1e25120a3b.wav",
+  "accepted": true,
+  "review": "user confirmed clear word once",
+  "sample_rate": 16000,
+  "duration_seconds": 5,
+  "keyword_timing": "unannotated; verify crop before training",
+  "peak": 9761,
+  "rms": 1520.52,
+  "clipped_samples": 0
+}
