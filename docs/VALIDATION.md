@@ -56,6 +56,10 @@ Public test comparison:
 
 V14 failed the original gates. It lost Speech Commands recall, remained above acceptable false-activation targets and regressed on two reused local recordings at some timing offsets. These limitations must remain in demonstrations and reports.
 
+### Final V16 board observation
+
+The owner's final V16 live demonstration detected STOP 5/5 times. START did not activate in the final follow-up check, while STOT still activated. Exact START and STOT repetition counts were not retained. This is the current physical demonstration result, but it is not a substitute for the rejected V16 public validation or a general 100% accuracy claim.
+
 ## What remains unverified
 
 - ESP32 core 3.3.11 compilation of the combined application.
@@ -101,5 +105,9 @@ Build output may support a static-allocation claim. It cannot support peak RAM. 
 Safe current claim:
 
 > The repository implements and physically demonstrates an open-source V14 edge-to-ASR pipeline with persistent triggered transport, 4-bit audio compression, loss telemetry and local transcription. Twenty-five physical captures completed without drops or sequence gaps. V14 remains inaccurate in controlled live speech, and formal idle CPU and peak RAM remain unverified.
+
+For the final demonstration, it is also safe to state:
+
+> The final V16 board demonstration detected STOP 5/5 times and rejected START in the follow-up check. STOT remained a known synthetic false trigger; the live check was small and does not establish general 100% accuracy.
 
 Do not claim that V14 is a finished accurate detector or that the full system already satisfies the physical resource limits.

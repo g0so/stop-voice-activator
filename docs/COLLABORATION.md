@@ -29,12 +29,14 @@ A firmware or model handoff should contain:
 
 Do not commit public audio archives, feature caches, virtual environments, compiled binaries, ASR model downloads, captures containing new speech or Wi-Fi credentials.
 
-## Current candidate
+## Current demonstration and transport baseline
 
-- Sketch: `outputs/live_stop_expanded_v14_streaming/live_stop_expanded_v14_streaming.ino`
+- Final demonstration sketch: `outputs/live_stop_expanded_v16_experimental_streaming/live_stop_expanded_v16_experimental_streaming.ino`
+- Final observed behavior: STOP 5/5; START rejected in the follow-up check; STOT still activated
+- Demonstration model: V16 epoch 10, test-only because broader validation was rejected
+- Demonstration model SHA256: `9355159564858cfc5ab219b166e29e4b10385bc90b0fae3d9eecbf105614c5a9`
+- Transport-verified baseline: `outputs/live_stop_expanded_v14_streaming/live_stop_expanded_v14_streaming.ino`
 - Server: `server/voice_activation_server.py`
-- Model: frozen V14 epoch 20
-- Model SHA256: `4be984725547bc3702a6ef3c455a151096eb8138a400fa284b8fb670a5248429`
 - Threshold: `0.8671875`
 - Target board: ESP32 Dev Module
 - Target ESP32 core: 3.3.11

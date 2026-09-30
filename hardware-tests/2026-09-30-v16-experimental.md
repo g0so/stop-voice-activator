@@ -9,10 +9,10 @@
 
 ## Observed detector behavior
 
-- STOP activation worked in the owner's final check.
-- START did not activate in the final check.
+- STOP activated **5/5 times** in the owner's final demonstration.
+- START did not activate in the final follow-up check.
 - STOT still activated.
-- Exact repetition counts were not retained, so this is not a formal accuracy result.
+- Exact repetition counts were not retained for the START and STOT follow-up checks, so this is not a formal general-accuracy result.
 
 The owner considers STOT unlikely in the intended demonstration environment,
 but it remains a documented false-activation limitation. V16 failed public

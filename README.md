@@ -9,7 +9,7 @@ The complete pipeline now runs on physical hardware. Audio transport is reliable
 ## What works today
 
 - Local 16 kHz keyword inference on ESP32 with a 49 × 24 log-mel frontend.
-- Frozen V14 DS-CNN model with an on-device nine-vector numerical self-test.
+- Versioned V14 transport baseline and V16 demonstration model, each with an on-device nine-vector numerical self-test.
 - Persistent TCP connection, 750 ms pre-roll and five seconds of post-trigger audio.
 - Frame-resilient 4-bit IMA ADPCM with sequence and dropped-sample telemetry.
 - Local Python receiver, WAV/JSON evidence, browser dashboard and optional faster-whisper ASR.
@@ -17,24 +17,19 @@ The complete pipeline now runs on physical hardware. Audio transport is reliable
 - A clear physical capture transcribed as: “Stop, turn on the laboratory light, stop.”
 - Final V16 live demonstration: **STOP 5/5 detections**; START rejected in the follow-up board check.
 
-## Live detection result and known limitation
+## Final live board result
 
-Detection and false activations are reported separately. Writing “0/10 accuracy” for a word that always activates is ambiguous: for the intended keyword it means successful detection, while for a negative word it means a false activation. The final owner-observed V16 board demonstration produced **5/5 STOP detections**. START no longer activated the detector in the follow-up check, but the deliberately difficult synthetic confusable **STOT** still activated it. Because this was a small same-speaker demonstration rather than a frozen independent evaluation, it must not be presented as a general 100% accuracy claim.
+Detection and false activations are reported separately. Writing “0/10 accuracy” for a word that always activates is ambiguous: for the intended keyword it means successful detection, while for a negative word it means a false activation.
 
-The earlier controlled V14 run remains below for historical comparison:
+| Final V16 observation | Board result |
+|---|---|
+| STOP | **5/5 detected** |
+| START | **No activation observed in the final follow-up check** |
+| STOT | Activation observed; retained as a synthetic stress-test limitation |
 
-V14 reduced false activations substantially relative to V10 in public desktop evaluation, but it failed the original acceptance gates and performed poorly in the first controlled live test:
+This is a small same-speaker live demonstration, not a general 100% accuracy claim. Exact repetition counts were not retained for the final START and STOT follow-up checks. The earlier V14 controlled run—STOP 3/10, START false activations 4/5, STARK 2/5 and STOT 5/5—is preserved in the [V14 physical test report](hardware-tests/2026-09-30-v14-streaming.md), rather than presented as the current V16 board result.
 
-| Spoken word | Activations | Interpretation |
-|---|---:|---|
-| STOP | 3/10 | Seven misses |
-| START | 4/5 | Four false activations |
-| SHORT | 0/5 | No natural-pronunciation activation |
-| STARK | 2/5 | Two false activations |
-| STOT | 5/5 | Five false activations |
-| SHOP | 0/5 | No activation |
-
-This repository reports those failures deliberately. V16 improved the live demonstration behavior, but neither V14 nor V16 should be described as a production-validated detector. See the [physical test report](hardware-tests/2026-09-30-v14-streaming.md) and [model status](docs/STATUS.md).
+V16 clearly improved the final live behavior for STOP and START, but its broader public validation did not pass. See the [V16 board report](hardware-tests/2026-09-30-v16-experimental.md) and [model status](docs/STATUS.md).
 
 ## Architecture
 
@@ -44,7 +39,7 @@ INMP441 microphone
         v
 16 kHz PCM capture on ESP32
         |
-        +--> log-mel frontend --> int8 V14 DS-CNN --> STOP decision
+        +--> log-mel frontend --> int8 DS-CNN --> STOP decision
         |                                                |
         +--> 1.5 s PCM ring buffer                       |
                                                          v
@@ -96,7 +91,7 @@ The first ASR run downloads the selected open-source model.
 
 ### 2. Configure the board
 
-Edit [`network_config.h`](outputs/live_stop_expanded_v14_streaming/network_config.h):
+Edit [`network_config.h`](outputs/live_stop_expanded_v16_experimental_streaming/network_config.h):
 
 ```cpp
 constexpr char WIFI_SSID[] = "YOUR_WIFI_SSID";
@@ -108,7 +103,7 @@ Use the receiver computer's LAN address, not `127.0.0.1`, and never commit real 
 
 ### 3. Upload the complete sketch
 
-Open [`live_stop_expanded_v14_streaming.ino`](outputs/live_stop_expanded_v14_streaming/live_stop_expanded_v14_streaming.ino) in Arduino IDE.
+Open [`live_stop_expanded_v16_experimental_streaming.ino`](outputs/live_stop_expanded_v16_experimental_streaming/live_stop_expanded_v16_experimental_streaming.ino) in Arduino IDE.
 
 - Board: **ESP32 Dev Module**
 - Target ESP32 core: **3.3.11**
@@ -122,7 +117,7 @@ Successful startup includes:
 PASS: model self-test.
 Wi-Fi connected
 Voice server connected.
-READY V14 STREAMING: listening for STOP.
+READY V16 EXPERIMENTAL: rejected model, test only.
 ```
 
 Stop if any self-test line reports `ERROR` or if the maximum reference difference exceeds 3. Continue with the [full quick start and troubleshooting guide](docs/QUICKSTART.md).
@@ -148,7 +143,8 @@ The firmware build used ESP32 core 3.3.12 and GCC 14.2.0. The exact core version
 
 | Path | Contents |
 |---|---|
-| [`outputs/live_stop_expanded_v14_streaming/`](outputs/live_stop_expanded_v14_streaming/) | Complete physical streaming candidate |
+| [`outputs/live_stop_expanded_v16_experimental_streaming/`](outputs/live_stop_expanded_v16_experimental_streaming/) | Final physical demonstration sketch; STOP 5/5 and START rejected in the owner-observed check |
+| [`outputs/live_stop_expanded_v14_streaming/`](outputs/live_stop_expanded_v14_streaming/) | Transport-verified V14 baseline retained for comparison |
 | [`server/`](server/) | Receiver, ADPCM decoder, ASR adapter, dashboard and tests |
 | [`outputs/stop_model_expanded_v14/`](outputs/stop_model_expanded_v14/) | Frozen V14 model and evaluation evidence |
 | [`outputs/live_stop_reviewed_v10/`](outputs/live_stop_reviewed_v10/) | Earlier physically reported fallback detector |

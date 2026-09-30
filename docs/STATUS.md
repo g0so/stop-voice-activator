@@ -2,7 +2,9 @@
 
 ## Deployment status
 
-**V10-R1 is the only detector previously reported running on the physical board.** The owner says it runs, but START, SHORT, STARK, STOT and other words can trigger it. Earlier physical inference timing was approximately 26.6 ms. The final R1 startup parity log was not supplied; do not infer a measured pass from the user's general “working” report.
+The **V16 comparison firmware has run on the physical board**. In the owner's final live demonstration, STOP activated **5/5 times** and START did not activate in the follow-up check. STOT still activated. Exact repetition counts were not retained for the final START and STOT checks, so those two observations remain qualitative. This board result replaces the older V14 behavior as the current live demonstration result, but it does not override V16's rejected public validation.
+
+V10-R1 also ran previously on the board, with known START, SHORT, STARK and STOT confusion. Earlier physical inference timing was approximately 26.6 ms.
 
 V10 model: 13,288 bytes, threshold 0.8671875, 24 KiB reserved arena, one inference every 200 ms. Historical build: 399,888 bytes flash and 59,916 bytes static RAM. Complete firmware is outputs/live_stop_reviewed_v10/.
 
@@ -16,7 +18,7 @@ The **V14 streaming integration** is the current end-to-end candidate. It preser
 | V12 | Rejected on validation | Full shuffle and stronger local-negative weighting improved some results but did not pass combined gates. |
 | V14 | Rejected on original gates; physically tested as a **baseline-improvement candidate** | Batch norm + streaming supplement, 16/24/32. Physical transport passed, but the controlled run detected only 3/10 STOP and falsely activated on START 4/5, STARK 2/5 and STOT 5/5. It is not a finished detector. |
 | V15 | Rejected on validation | Same as V14 with widths 32/48/64. No better at matched false activations: capacity is not the bottleneck. Test unscored. |
-| V16 | Rejected on validation; physically compared as test-only | Final bounded reweighting experiment: 4x START/STAR/STARK/STOPPED negatives plus 1.5x STOP weight. Epoch 10 cut validation START false activations to 1/182 at V14's threshold, but MSWC STOP recall collapsed to 27.5%. A qualitative board check rejected START but still triggered on STOT. Test unscored. |
+| V16 | Rejected on validation; final physical demonstration completed | Final bounded reweighting experiment: 4x START/STAR/STARK/STOPPED negatives plus 1.5x STOP weight. The final board demonstration detected STOP 5/5 and rejected START in the follow-up check; STOT still activated. Epoch 10 cut validation START false activations to 1/182 at V14's threshold, but MSWC STOP recall collapsed to 27.5%. Test unscored. |
 | V13 | Interrupted | 13 epochs completed; log ended at epoch 14/60. best.keras and epoch_10.keras preserved. No validation selection, exported deployment model or test evaluation. No process running at handoff. |
 
 V13 adds batch normalization during training, intended to fold into convolutions when exported. Folding, operation compatibility and accuracy remain unchecked. Historical model directories may reference intermediate checkpoints not included here; best checkpoints and evidence are retained. V13 has both available checkpoints. This snapshot is sufficient to continue investigation, not to reproduce every old experiment byte-for-byte without regenerating data.
@@ -43,4 +45,4 @@ V13 remains partial and must not be described as a completed 60-epoch run. V14 a
 
 ## Immediate next step
 
-The end-to-end physical pipeline is demonstrated and documented in `hardware-tests/2026-09-30-v14-streaming.md`. Further detector development would require a new explicitly authorized experiment because V14 failed live accuracy. Independent total-idle-CPU and whole-application peak-RAM measurements also remain outstanding; the printed timing and heap fields are diagnostic only.
+The end-to-end transport pipeline is documented in `hardware-tests/2026-09-30-v14-streaming.md`; the improved final V16 live behavior is documented in `hardware-tests/2026-09-30-v16-experimental.md`. Further detector development would require a new explicitly authorized experiment. Resource-test samples showed aggregate dual-core CPU near 9.5% for most displayed intervals and a 205,112-byte minimum-free-heap reading, but no uninterrupted final `RESOURCE RESULT` line was captured, so the formal 60-second resource verdict remains unclosed.

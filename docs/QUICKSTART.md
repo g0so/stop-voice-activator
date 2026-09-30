@@ -1,5 +1,11 @@
 # Quick start
 
+The final physical demonstration used
+`outputs/live_stop_expanded_v16_experimental_streaming/`: STOP activated 5/5
+times and START did not activate in the final follow-up check. STOT remained a
+known synthetic false trigger. The V14 instructions later in this document are
+retained as the transport-verified baseline procedure.
+
 ## Requirements
 
 ### Hardware
