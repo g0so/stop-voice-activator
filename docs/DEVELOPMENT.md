@@ -75,3 +75,13 @@ The trainer emits stop_int8.tflite, stop_model_data.h and test_vectors.h after f
 Substitute the actual passing version. Neither command is currently appropriate for the incomplete V13. The packager includes all frontend sources, the model and reference vectors. Threshold must match frozen_selection.json. Compare generated source with the baseline before delivery.
 
 Have Arduino IDE/CLI compile for esp32:esp32:esp32 (ESP32 Dev Module), core 3.3.11, if authorized and available. Record compiler result and resource sizes. Commit the complete sketch folder, small .tflite model, provenance, evaluation report and instructions together. No auto-flashing from the friend's machine.
+
+## V14 triggered streaming and local ASR
+
+The integration sketch is `outputs/live_stop_expanded_v14_streaming/live_stop_expanded_v14_streaming.ino`. Edit its `network_config.h`, then start the local receiver from the repository root:
+
+```bash
+server/.venv/bin/python server/voice_activation_server.py --model tiny.en
+```
+
+For transport-only testing, use `--no-asr`. The dashboard is available at `http://127.0.0.1:8080`. See `server/README.md` for setup and `server/TEST_REPORT.md` for host-only verification. The final SIH latency, CPU and peak-RAM evidence must come from the physical ESP32 run, not the local test client.

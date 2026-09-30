@@ -24,6 +24,9 @@ __pycache__/
 *.map
 *.so
 /build/
+/server/.venv/
+/server/models/
+/server/captures/
 # Per-utterance continuous-replay caches (machine-specific paths); keep continuous_*_summary.json.
 /outputs/*/continuous_validation/
 /outputs/*/continuous_test/

@@ -1,10 +1,12 @@
-# State at Git handoff
+# Current project status
 
 ## Deployment status
 
-**V10-R1 is the only included previously compiled live detector.** The owner says it runs, but START, SHORT, STARK, STOT and other words can trigger it. Earlier physical inference timing was approximately 26.6 ms. The final R1 startup parity log was not supplied; do not infer a measured pass from the user's general “working” report.
+**V10-R1 is the only detector previously reported running on the physical board.** The owner says it runs, but START, SHORT, STARK, STOT and other words can trigger it. Earlier physical inference timing was approximately 26.6 ms. The final R1 startup parity log was not supplied; do not infer a measured pass from the user's general “working” report.
 
 V10 model: 13,288 bytes, threshold 0.8671875, 24 KiB reserved arena, one inference every 200 ms. Historical build: 399,888 bytes flash and 59,916 bytes static RAM. Complete firmware is outputs/live_stop_reviewed_v10/.
+
+The **V14 streaming integration** is the current end-to-end candidate. It preserves the V14 model and frontend, adds persistent TCP, 750 ms pre-roll, five seconds of following audio, IMA ADPCM compression, loss telemetry and a local faster-whisper server. The owner's GCC 14.2.0 toolchain initially exposed a `.dram0.bss` overflow from the global 48 KiB audio ring. The ring now uses checked internal-heap allocation, and recompilation with ESP32 core 3.3.12 passes. Physical upload and runtime testing remain pending.
 
 ## Expanded experiments
 
@@ -34,11 +36,10 @@ V12 best at threshold 0.875: SC STOP recall 73.45%; MSWC STOP recall 62.75%; fal
 
 V10's small original local test passed 4/4 STOP and 0/4 negatives across ten phases, but this did not generalize to new similar words. Reference-runtime historical metrics take precedence over older accelerated-desktop metrics.
 
-## Next investigation, when authorized
+## Model history and possible future investigation
 
-1. Inspect V13 partial history/checkpoints and decide between evaluating existing checkpoints or a new versioned run. Do not restart automatically or call this a finished 60-epoch run.
-2. Recreate public audio/features on the friend's machine if needed. Generated manifests contain machine-specific absolute paths: regenerate them, do not copy them from another machine.
-3. Existing build_streaming_supplement.py creates 1,456 training-only examples from reviewed audio (816 rolling negatives, 640 augmented positives). These were prepared separately on the owner's PC but **not wired into V13 training**. They may address window-position false triggers. Do not claim they were already used.
-4. Select/freeze a passing candidate, evaluate test and full negative utterances, check host frontend parity, then package a complete sketch for the owner. Never silently weaken acceptance gates.
+V13 remains partial and must not be described as a completed 60-epoch run. V14 already used the 1,456-example streaming supplement. V15 established that simply widening the network did not improve the validation tradeoff. Any future model experiment must use a new versioned output folder, preserve the existing split discipline and freeze selection before held-out testing.
 
-Still unimplemented: triggered network audio streaming, ASR server, end-to-end latency measurement. Still unverified: total idle CPU and whole-application peak RAM. A successful KWS model does not finish the hackathon project.
+## Immediate next step
+
+Upload and test `outputs/live_stop_expanded_v14_streaming/` on the physical ESP32. Retain the complete serial log, receiver JSON, WAV files and the filled `hardware-tests/STREAMING_TEMPLATE.md`. Still unverified on the board: live capture during Wi-Fi transmission, end-to-end Wi-Fi latency, total idle CPU and whole-application peak RAM.
