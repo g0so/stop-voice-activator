@@ -1,0 +1,8 @@
+{
+  "model_sha256": "4be984725547bc3702a6ef3c455a151096eb8138a400fa284b8fb670a5248429",
+  "threshold": 0.8671875,
+  "source_model_directory": "outputs/stop_model_expanded_v14",
+  "frontend": "Unchanged V10 per-band temporal mean centering",
+  "reference_outputs": "TFLite BUILTIN_REF",
+  "physical_board_status": "Not uploaded or measured yet"
+}

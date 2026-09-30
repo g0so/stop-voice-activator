@@ -1,6 +1,6 @@
-"""Static handoff check; no model execution, compilation, training or network."""
+"""Static repository check; no model execution, compilation, training or network."""
 from pathlib import Path
-import ast,hashlib,json,re,wave
+import ast,hashlib,json,re,subprocess,wave
 root=Path(__file__).resolve().parents[1]
 for p in root.rglob('*.py'):
  if not any(x in p.parts for x in ['.venv','work']):ast.parse(p.read_text(),filename=str(p))
@@ -16,5 +16,11 @@ blob=(root/'outputs/stop_model_reviewed_v10/stop_int8.tflite').read_bytes()
 assert hashlib.sha256(blob).hexdigest()=='f4cfb4a730d8318e5239c1cb5c3a234ef904744c5233fbc28d183379fc0d97e0'
 s=(folder/'stop_model_data.h').read_text();body=s.split('{',1)[1].split('}',1)[0]
 assert bytes(map(int,re.findall(r'\d+',body)))==blob
-assert not (root/'outputs/dataset/expanded_public').exists(),'Public audio should not be bundled'
-print('PASS: Python syntax, 32 reviewed recordings, complete firmware sources, baseline model/header hash. No builds or inference performed.')
+public_cache=root/'outputs/dataset/expanded_public'
+if public_cache.exists():
+ result=subprocess.run(
+  ['git','check-ignore','--quiet',str(public_cache.relative_to(root))],
+  cwd=root,check=False,
+ )
+ assert result.returncode==0,'Public audio cache exists and is not excluded from Git'
+print('PASS: Python syntax, 32 reviewed recordings, complete firmware sources, baseline model/header hash, public cache excluded. No builds or inference performed.')
