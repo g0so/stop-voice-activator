@@ -3,6 +3,7 @@
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <esp_heap_caps.h>
+#include <freertos/idf_additions.h>
 #include <math.h>
 #include <string.h>
 #include "tensorflow/lite/micro/micro_interpreter.h"
@@ -26,6 +27,13 @@ constexpr size_t AUDIO_RING_BYTES = AUDIO_RING_SAMPLES * sizeof(int16_t);
 constexpr uint16_t STREAM_FRAME_SAMPLES = 160;            // 10 ms / 320 bytes.
 constexpr uint8_t PROTOCOL_VERSION = 1;
 constexpr uint8_t CODEC_IMA_ADPCM = 1;
+constexpr uint32_t RESOURCE_WARMUP_MS = 30000;
+constexpr uint64_t RESOURCE_WINDOW_US = 60000000ULL;
+// The ESP32 Dev Module linker reports application DRAM against this budget.
+// Subtracting minimum-ever internal free heap gives a conservative peak that
+// includes static and runtime use.
+constexpr uint32_t APP_DRAM_BUDGET_BYTES = 327680;
+constexpr uint32_t RAM_LIMIT_BYTES = 256 * 1024;
 
 enum FrameType : uint8_t {
   FRAME_HELLO = 1,
@@ -58,6 +66,10 @@ uint32_t lastInference = 0, lastActivation = 0;
 unsigned peakSinceReport = 0, activations = 0, lowScoreCount = 0;
 float score = 0, maxScoreSinceReport = 0;
 bool latched = false;
+uint32_t lastCpuSampleUs = 0;
+configRUN_TIME_COUNTER_TYPE lastIdle0Us = 0, lastIdle1Us = 0;
+uint64_t resourceElapsedUs = 0, resourceIdle0Us = 0, resourceIdle1Us = 0;
+bool resourceIntervalIdle = true, resourceResultPrinted = false;
 
 WiFiClient serverClient;
 uint32_t lastNetworkAttempt = 0, lastPing = 0;
@@ -203,6 +215,7 @@ void connectWifi() {
 }
 
 void beginAudioStream(float triggerScore) {
+  resourceIntervalIdle = false;
   ++activationId;
   triggerDeviceMs = millis();
   triggerScoreQ15 = (uint16_t)constrain((int)lroundf(triggerScore * 32767.0f), 0, 32767);
@@ -424,8 +437,12 @@ void setup() {
                 g_stop_model_len, (unsigned)sizeof(arena), (unsigned)modelRuntime->arena_used_bytes(),
                 (unsigned)AUDIO_RING_BYTES, (unsigned)ESP.getFreeHeap());
   Serial.println("READY V16 EXPERIMENTAL: rejected model, test only.");
-  Serial.println("Scores every 2 seconds. work% is pipeline wall time, not total CPU utilization.");
+  Serial.println("Scores every 2 seconds. cpu0/cpu1/cpu_total use FreeRTOS idle counters.");
+  Serial.println("RESOURCE TEST: keep the device listening without triggering for 90 seconds.");
   lastReport = millis();
+  lastCpuSampleUs = micros();
+  lastIdle0Us = ulTaskGetIdleRunTimeCounterForCore(0);
+  lastIdle1Us = ulTaskGetIdleRunTimeCounterForCore(1);
 }
 
 void loop() {
@@ -456,12 +473,49 @@ void loop() {
 
   const uint32_t now = millis();
   if ((uint32_t)(now - lastReport) >= 2000) {
+    const uint32_t cpuNowUs = micros();
+    const configRUN_TIME_COUNTER_TYPE idle0Now = ulTaskGetIdleRunTimeCounterForCore(0);
+    const configRUN_TIME_COUNTER_TYPE idle1Now = ulTaskGetIdleRunTimeCounterForCore(1);
+    const uint32_t cpuElapsedUs = cpuNowUs - lastCpuSampleUs;
+    uint32_t idle0DeltaUs = (uint32_t)(idle0Now - lastIdle0Us);
+    uint32_t idle1DeltaUs = (uint32_t)(idle1Now - lastIdle1Us);
+    if (idle0DeltaUs > cpuElapsedUs) idle0DeltaUs = cpuElapsedUs;
+    if (idle1DeltaUs > cpuElapsedUs) idle1DeltaUs = cpuElapsedUs;
+    const float cpu0Percent = 100.0f * (1.0f - (float)idle0DeltaUs / cpuElapsedUs);
+    const float cpu1Percent = 100.0f * (1.0f - (float)idle1DeltaUs / cpuElapsedUs);
+    const float totalCpuPercent = (cpu0Percent + cpu1Percent) * 0.5f;
     const float workPercent = workMicros / ((now - lastReport) * 10.0f);
     const float networkPercent = networkMicros / ((now - lastReport) * 10.0f);
-    Serial.printf("score=%.4f | max=%.4f | peak=%u | inference=%lu us | work=%.1f%% | net=%.1f%% | heap=%u | wifi=%d | stream=%d\n",
+    Serial.printf("score=%.4f | max=%.4f | peak=%u | inference=%lu us | work=%.1f%% | net=%.1f%% | cpu0=%.1f%% | cpu1=%.1f%% | cpu_total=%.1f%% | heap=%u | min_heap=%u | wifi=%d | stream=%d\n",
                   score, maxScoreSinceReport, peakSinceReport, (unsigned long)lastInference,
-                  workPercent, networkPercent, (unsigned)ESP.getFreeHeap(),
+                  workPercent, networkPercent, cpu0Percent, cpu1Percent, totalCpuPercent,
+                  (unsigned)ESP.getFreeHeap(), (unsigned)ESP.getMinFreeHeap(),
                   (int)WiFi.status(), streaming ? 1 : 0);
+
+    if (!resourceResultPrinted && now >= RESOURCE_WARMUP_MS && resourceIntervalIdle) {
+      resourceElapsedUs += cpuElapsedUs;
+      resourceIdle0Us += idle0DeltaUs;
+      resourceIdle1Us += idle1DeltaUs;
+      if (resourceElapsedUs >= RESOURCE_WINDOW_US) {
+        const float measuredCpu0 = 100.0f * (1.0f - (double)resourceIdle0Us / resourceElapsedUs);
+        const float measuredCpu1 = 100.0f * (1.0f - (double)resourceIdle1Us / resourceElapsedUs);
+        const float measuredTotal = (measuredCpu0 + measuredCpu1) * 0.5f;
+        const uint32_t minimumFree = ESP.getMinFreeHeap();
+        const uint32_t peakRam = minimumFree < APP_DRAM_BUDGET_BYTES
+                                     ? APP_DRAM_BUDGET_BYTES - minimumFree
+                                     : 0;
+        Serial.printf("RESOURCE RESULT | idle_window=%.1f s | cpu0=%.2f%% | cpu1=%.2f%% | cpu_total=%.2f%% | CPU_%s (<10%%) | min_heap=%u | peak_ram_upper=%u | RAM_%s (<262144)\n",
+                      resourceElapsedUs / 1000000.0, measuredCpu0, measuredCpu1,
+                      measuredTotal, measuredTotal < 10.0f ? "PASS" : "FAIL",
+                      (unsigned)minimumFree, (unsigned)peakRam,
+                      peakRam < RAM_LIMIT_BYTES ? "PASS" : "FAIL");
+        resourceResultPrinted = true;
+      }
+    }
+    lastCpuSampleUs = cpuNowUs;
+    lastIdle0Us = idle0Now;
+    lastIdle1Us = idle1Now;
+    resourceIntervalIdle = !streaming;
     workMicros = networkMicros = 0;
     peakSinceReport = 0;
     maxScoreSinceReport = 0;

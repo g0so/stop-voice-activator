@@ -40,6 +40,12 @@ ESP32 profiler was used, so the formal idle-CPU requirement remains unverified.
 Free heap and static allocation likewise do not establish whole-application
 peak RAM.
 
+The follow-up resource-test firmware now reports per-core FreeRTOS idle-counter
+utilization, normalized aggregate dual-core utilization, minimum-ever internal
+free heap and a conservative peak-RAM upper bound. The procedure is documented
+in `docs/V16_RESOURCE_TEST.md`. Its physical result remains pending; do not
+replace this paragraph with a pass until the board prints `RESOURCE RESULT`.
+
 ## Transport scope
 
 The V14 integration already established 25 complete physical captures with
