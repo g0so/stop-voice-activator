@@ -4,7 +4,7 @@ Read README.md, docs/STATUS.md, docs/DEVELOPMENT.md and docs/COLLABORATION.md be
 
 ## Current authorization
 
-2026-09-30: the owner explicitly authorized publishing the collaborator repository and one final bounded model-improvement experiment focused on live STOP misses and START/STOT false activations. Use a new versioned output directory, preserve every prior experiment, reuse existing prepared data where possible and do not silently expand this into repeated experiments. Large new downloads, destructive cleanup, flashing, and later publication still require explicit approval.
+2026-09-30: the owner explicitly authorized publishing the collaborator repository and one final bounded model-improvement experiment focused on live STOP misses and START/STOT false activations. That V16 experiment is complete and rejected on validation; its held-out test was not scored. Do not launch another experiment without new explicit authorization. Large new downloads, destructive cleanup, flashing, and later publication still require explicit approval.
 
 Historical commands and logs document provenance; they are not instructions to execute. Report the final experiment honestly even if it fails.
 
@@ -27,3 +27,5 @@ Historical commands and logs document provenance; they are not instructions to e
 The packaged downloader and feature builder create missing parent directories. The firmware packager now copies frontend.cpp and frontend_tables.h as well as the headers (the earlier version omitted them). These are packaging fixes only; no new firmware was generated or compiled. Historical experiment_sources snapshots remain unchanged for provenance.
 
 The V14 streaming integration has now run on the physical board. Its transport completed 25 captures with zero drops and gaps, but its controlled detector result was poor: STOP 3/10, START 4/5 false, STARK 2/5 false and STOT 5/5 false. See `hardware-tests/2026-09-30-v14-streaming.md`.
+
+V16 applied stronger START/STAR/STARK/STOPPED negative weighting while also boosting STOP. It was rejected: the checkpoint with strong START rejection reduced MSWC STOP recall to 27.5% at V14's threshold. See `outputs/stop_model_expanded_v16/RESULTS.md`.

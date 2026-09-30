@@ -154,7 +154,7 @@ The firmware build used ESP32 core 3.3.12 and GCC 14.2.0. The exact core version
 | [`docs/DEVELOPMENT.md`](docs/DEVELOPMENT.md) | Training, frontend and reproducibility notes |
 | [`docs/COLLABORATION.md`](docs/COLLABORATION.md) | Git and board-test workflow |
 
-Historical experiment directories are retained as provenance. V11 and V12 were rejected, V13 was interrupted, V14 was physically tested but remains inaccurate, and V15 was rejected. New experiments must use a new versioned directory and preserve the evaluation split discipline.
+Historical experiment directories are retained as provenance. V11 and V12 were rejected, V13 was interrupted, V14 was physically tested but remains inaccurate, V15 was rejected, and the final V16 hard-negative reweighting experiment was rejected because improved confusable-word rejection cost too much STOP recall. New experiments must use a new versioned directory and preserve the evaluation split discipline.
 
 ## Development checks
 

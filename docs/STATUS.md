@@ -16,6 +16,7 @@ The **V14 streaming integration** is the current end-to-end candidate. It preser
 | V12 | Rejected on validation | Full shuffle and stronger local-negative weighting improved some results but did not pass combined gates. |
 | V14 | Rejected on original gates; physically tested as a **baseline-improvement candidate** | Batch norm + streaming supplement, 16/24/32. Physical transport passed, but the controlled run detected only 3/10 STOP and falsely activated on START 4/5, STARK 2/5 and STOT 5/5. It is not a finished detector. |
 | V15 | Rejected on validation | Same as V14 with widths 32/48/64. No better at matched false activations: capacity is not the bottleneck. Test unscored. |
+| V16 | Rejected on validation | Final bounded reweighting experiment: 4x START/STAR/STARK/STOPPED negatives plus 1.5x STOP weight. Epoch 10 cut validation START false activations to 1/182 at V14's threshold, but MSWC STOP recall collapsed to 27.5%. Test unscored. |
 | V13 | Interrupted | 13 epochs completed; log ended at epoch 14/60. best.keras and epoch_10.keras preserved. No validation selection, exported deployment model or test evaluation. No process running at handoff. |
 
 V13 adds batch normalization during training, intended to fold into convolutions when exported. Folding, operation compatibility and accuracy remain unchecked. Historical model directories may reference intermediate checkpoints not included here; best checkpoints and evidence are retained. V13 has both available checkpoints. This snapshot is sufficient to continue investigation, not to reproduce every old experiment byte-for-byte without regenerating data.
@@ -38,7 +39,7 @@ V10's small original local test passed 4/4 STOP and 0/4 negatives across ten pha
 
 ## Model history and possible future investigation
 
-V13 remains partial and must not be described as a completed 60-epoch run. V14 already used the 1,456-example streaming supplement. V15 established that simply widening the network did not improve the validation tradeoff. Any future model experiment must use a new versioned output folder, preserve the existing split discipline and freeze selection before held-out testing.
+V13 remains partial and must not be described as a completed 60-epoch run. V14 already used the 1,456-example streaming supplement. V15 established that simply widening the network did not improve the validation tradeoff. V16 established that aggressive hard-negative reweighting reduces START-family false activations only by sacrificing too much STOP recall. Any future model experiment must use a new versioned output folder, preserve the existing split discipline and freeze selection before held-out testing.
 
 ## Immediate next step
 
