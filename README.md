@@ -4,7 +4,7 @@ An open edge-to-ASR prototype for **SIH26172: Low Latency and Efficient Voice Ac
 
 An ESP32-WROOM-32E listens locally for **STOP** using a custom int8 keyword model. After activation, it sends 750 ms of buffered pre-roll plus five seconds of live microphone audio to a local server, which reconstructs a WAV file and can transcribe it with faster-whisper.
 
-The complete pipeline now runs on physical hardware. Audio transport is reliable; keyword accuracy is still experimental and the current V14 model is **not** a finished detector.
+The complete pipeline now runs on physical hardware. Audio transport is reliable. In the owner's final V16 board demonstration, **STOP was detected 5/5 times** and ordinary **START was rejected**. This is a small live demonstration result, not a population-level accuracy percentage; the detector remains experimental because the synthetic confusable word **STOT** can still activate it.
 
 ## What works today
 
@@ -15,8 +15,13 @@ The complete pipeline now runs on physical hardware. Audio transport is reliable
 - Local Python receiver, WAV/JSON evidence, browser dashboard and optional faster-whisper ASR.
 - Physical end-to-end capture: **2,300,000/2,300,000 samples received**, with zero dropped samples and zero sequence gaps across 25 captures.
 - A clear physical capture transcribed as: “Stop, turn on the laboratory light, stop.”
+- Final V16 live demonstration: **STOP 5/5 detections**; START rejected in the follow-up board check.
 
-## Known limitation: detector accuracy
+## Live detection result and known limitation
+
+Detection and false activations are reported separately. Writing “0/10 accuracy” for a word that always activates is ambiguous: for the intended keyword it means successful detection, while for a negative word it means a false activation. The final owner-observed V16 board demonstration produced **5/5 STOP detections**. START no longer activated the detector in the follow-up check, but the deliberately difficult synthetic confusable **STOT** still activated it. Because this was a small same-speaker demonstration rather than a frozen independent evaluation, it must not be presented as a general 100% accuracy claim.
+
+The earlier controlled V14 run remains below for historical comparison:
 
 V14 reduced false activations substantially relative to V10 in public desktop evaluation, but it failed the original acceptance gates and performed poorly in the first controlled live test:
 
@@ -29,7 +34,7 @@ V14 reduced false activations substantially relative to V10 in public desktop ev
 | STOT | 5/5 | Five false activations |
 | SHOP | 0/5 | No activation |
 
-This repository reports those failures deliberately. Do not present V14 as an accurate production wake-word model. See the [physical test report](hardware-tests/2026-09-30-v14-streaming.md) and [model status](docs/STATUS.md).
+This repository reports those failures deliberately. V16 improved the live demonstration behavior, but neither V14 nor V16 should be described as a production-validated detector. See the [physical test report](hardware-tests/2026-09-30-v14-streaming.md) and [model status](docs/STATUS.md).
 
 ## Architecture
 
