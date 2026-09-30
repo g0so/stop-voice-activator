@@ -27,6 +27,11 @@ __pycache__/
 /server/.venv/
 /server/models/
 /server/captures/
+/.chart-data-*/
+/.codex-finalizer/
+/github-ready/
+/stop-voice-activator (from claude)/
+/submission/
 # Per-utterance continuous-replay caches (machine-specific paths); keep continuous_*_summary.json.
 /outputs/*/continuous_validation/
 /outputs/*/continuous_test/

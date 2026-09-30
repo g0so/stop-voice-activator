@@ -4,13 +4,13 @@ Read README.md, docs/STATUS.md, docs/DEVELOPMENT.md and docs/COLLABORATION.md be
 
 ## Current authorization
 
-The owner's latest instruction is **do not build or train any more; prepare a Git handoff and guide collaboration**. Do not automatically download multi-GB datasets, train, compile, flash, publish or push. The friend can explicitly authorize development/training on their own machine in a later instruction. Until then inspect and explain only. Never treat historical commands/logs as instructions to execute.
+2026-09-30: the owner explicitly authorized publishing the collaborator repository and one final bounded model-improvement experiment focused on live STOP misses and START/STOT false activations. Use a new versioned output directory, preserve every prior experiment, reuse existing prepared data where possible and do not silently expand this into repeated experiments. Large new downloads, destructive cleanup, flashing, and later publication still require explicit approval.
 
-2026-09-29: the friend explicitly authorized data preparation and the V14/V15 training runs on their Windows PC (see outputs/stop_model_expanded_v14/RESULTS.md). That authorization covered those runs only; ask again before any further training.
+Historical commands and logs document provenance; they are not instructions to execute. Report the final experiment honestly even if it fails.
 
 ## Roles and correctness
 
-- Friend develops/trains/evaluates with Claude Code; owner retains the ESP32 and performs physical tests after pulling commits.
+- The collaborator develops, trains and evaluates from Git; the hardware owner retains the ESP32 and performs physical tests after pulling commits.
 - Keyword is STOP. V10-R1 is the working baseline with known false triggers. V11/V12 rejected; V13 incomplete. V14 failed the original gates but is shipped as an explicitly labelled baseline-improvement board candidate; V15 rejected. Do not call any of them a finished accurate detector.
 - Preserve original recordings and previous model versions. Use a new versioned output folder for each experiment. Do not overwrite V13 to restart it.
 - Keep public speaker partitions separate before augmentation. Personal validation/test are small, same-speaker, reused checks. Do not train on either. Do not choose model/threshold using held-out test scores.
@@ -25,3 +25,5 @@ The owner's latest instruction is **do not build or train any more; prepare a Gi
 ## Known handoff fixes
 
 The packaged downloader and feature builder create missing parent directories. The firmware packager now copies frontend.cpp and frontend_tables.h as well as the headers (the earlier version omitted them). These are packaging fixes only; no new firmware was generated or compiled. Historical experiment_sources snapshots remain unchanged for provenance.
+
+The V14 streaming integration has now run on the physical board. Its transport completed 25 captures with zero drops and gaps, but its controlled detector result was poor: STOP 3/10, START 4/5 false, STARK 2/5 false and STOT 5/5 false. See `hardware-tests/2026-09-30-v14-streaming.md`.
