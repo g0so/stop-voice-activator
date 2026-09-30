@@ -6,7 +6,7 @@
 
 V10 model: 13,288 bytes, threshold 0.8671875, 24 KiB reserved arena, one inference every 200 ms. Historical build: 399,888 bytes flash and 59,916 bytes static RAM. Complete firmware is outputs/live_stop_reviewed_v10/.
 
-The **V14 streaming integration** is the current end-to-end candidate. It preserves the V14 model and frontend, adds persistent TCP, 750 ms pre-roll, five seconds of following audio, IMA ADPCM compression, loss telemetry and a local faster-whisper server. The owner's GCC 14.2.0 toolchain initially exposed a `.dram0.bss` overflow from the global 48 KiB audio ring. The ring now uses checked internal-heap allocation, and recompilation with ESP32 core 3.3.12 passes. Physical upload and runtime testing remain pending.
+The **V14 streaming integration** is the current end-to-end candidate. It preserves the V14 model and frontend, adds persistent TCP, 750 ms pre-roll, five seconds of following audio, IMA ADPCM compression, loss telemetry and a local faster-whisper server. The owner's GCC 14.2.0 toolchain initially exposed a `.dram0.bss` overflow from the global 48 KiB audio ring. The ring now uses checked internal-heap allocation, and recompilation with ESP32 core 3.3.12 passes. A physical run passed the nine-vector self-test with maximum reference difference 0 and completed 25 captures totaling 2,300,000 samples with zero drops or sequence gaps.
 
 ## Expanded experiments
 
@@ -14,7 +14,7 @@ The **V14 streaming integration** is the current end-to-end candidate. It preser
 |---|---|---|
 | V11 | Rejected on validation | Too many misses when threshold rejects similar words. Small shuffle buffer preserved dataset ordering. |
 | V12 | Rejected on validation | Full shuffle and stronger local-negative weighting improved some results but did not pass combined gates. |
-| V14 | Rejected on original gates; shipped as **baseline-improvement board candidate** | Batch norm + streaming supplement, 16/24/32. No checkpoint passes the V11 gates. By explicit collaborator decision, epoch_20 frozen at V10's threshold 0.8671875 (no tuning) before test, because it cuts V10's validation false activations ~5–50x at equal MSWC recall. Sketch: outputs/live_stop_expanded_v14/. Board test pending. |
+| V14 | Rejected on original gates; physically tested as a **baseline-improvement candidate** | Batch norm + streaming supplement, 16/24/32. Physical transport passed, but the controlled run detected only 3/10 STOP and falsely activated on START 4/5, STARK 2/5 and STOT 5/5. It is not a finished detector. |
 | V15 | Rejected on validation | Same as V14 with widths 32/48/64. No better at matched false activations: capacity is not the bottleneck. Test unscored. |
 | V13 | Interrupted | 13 epochs completed; log ended at epoch 14/60. best.keras and epoch_10.keras preserved. No validation selection, exported deployment model or test evaluation. No process running at handoff. |
 
@@ -42,4 +42,4 @@ V13 remains partial and must not be described as a completed 60-epoch run. V14 a
 
 ## Immediate next step
 
-Upload and test `outputs/live_stop_expanded_v14_streaming/` on the physical ESP32. Retain the complete serial log, receiver JSON, WAV files and the filled `hardware-tests/STREAMING_TEMPLATE.md`. Still unverified on the board: live capture during Wi-Fi transmission, end-to-end Wi-Fi latency, total idle CPU and whole-application peak RAM.
+The end-to-end physical pipeline is demonstrated and documented in `hardware-tests/2026-09-30-v14-streaming.md`. Further detector development would require a new explicitly authorized experiment because V14 failed live accuracy. Independent total-idle-CPU and whole-application peak-RAM measurements also remain outstanding; the printed timing and heap fields are diagnostic only.

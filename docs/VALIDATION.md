@@ -16,7 +16,7 @@ The original combined sketch compiled for `esp32:esp32:esp32` with the locally a
 | Static dynamic-memory allocation | 84,840 / 327,680 bytes |
 | Build-reported space remaining before runtime allocations | 242,840 bytes |
 
-The project target remains core 3.3.11, which still needs separate compilation if strict target-version parity is required. The owner's installed core 3.3.12 build now passes; physical upload remains pending.
+The project target remains core 3.3.11. The owner's installed core 3.3.12 build passes. The combined sketch has also been uploaded and run on the physical board, although the exact installed core version used for that upload was not independently captured.
 
 ### Protocol and codec
 
@@ -58,10 +58,7 @@ V14 failed the original gates. It lost Speech Commands recall, remained above ac
 
 ## What remains unverified
 
-- V14 self-test on the actual ESP32.
 - ESP32 core 3.3.11 compilation of the combined application.
-- Loss-free I2S capture while Wi-Fi sends compressed audio.
-- Real trigger-to-server latency over Wi-Fi.
 - Total idle CPU utilization below 10%.
 - Whole-application peak RAM below 256 KB.
 - Sustained false activations in the actual demo environment.
@@ -103,6 +100,6 @@ Build output may support a static-allocation claim. It cannot support peak RAM. 
 
 Safe current claim:
 
-> The repository implements and host-tests an open-source V14 edge-to-ASR pipeline with persistent triggered transport, 4-bit audio compression, loss telemetry and local transcription. The combined sketch compiles for ESP32, while physical accuracy, Wi-Fi latency, idle CPU and peak RAM remain pending.
+> The repository implements and physically demonstrates an open-source V14 edge-to-ASR pipeline with persistent triggered transport, 4-bit audio compression, loss telemetry and local transcription. Twenty-five physical captures completed without drops or sequence gaps. V14 remains inaccurate in controlled live speech, and formal idle CPU and peak RAM remain unverified.
 
 Do not claim that V14 is a finished accurate detector or that the full system already satisfies the physical resource limits.

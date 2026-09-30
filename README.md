@@ -4,7 +4,7 @@ An open-source edge-to-ASR prototype for **SIH26172: Low Latency and Efficient V
 
 The system runs a custom keyword detector locally on an **ESP32-WROOM-32E** with an **INMP441** microphone. When the frozen V14 model detects **STOP**, the ESP32 sends buffered and following audio to a local server. The server reconstructs a WAV file, reports transport telemetry and can transcribe the recording with an open-source Whisper runtime.
 
-This repository contains a working software integration and reproducible model evidence. Physical-board validation of the combined Wi-Fi application is still pending.
+This repository contains a working software integration and reproducible model evidence. The combined Wi-Fi application has now run end to end on the physical board; transport succeeded, while the controlled speech test confirmed that V14 is not an accurate finished detector.
 
 ## System overview
 
@@ -41,7 +41,7 @@ The persistent TCP connection removes connection setup from the activation path.
 | Local ASR | Implemented with faster-whisper and tested on the host |
 | Browser status page | Implemented at port 8080 |
 | Firmware compilation | Passed with ESP32 core 3.3.12 and GCC 14.2.0 after moving the 48 KiB audio ring to checked internal-heap allocation |
-| Physical V14 board test | Pending on the target core 3.3.11 setup |
+| Physical V14 board test | Self-test and streaming passed; controlled speech test exposed severe misses and confusable-word false activations |
 | Formal idle CPU and peak RAM | Pending physical measurement |
 
 V14 remains a **baseline-improvement candidate**, not a finished accurate detector. In continuous desktop read-speech replay it produced about 68 false activations per hour. See [model status](docs/STATUS.md) for the complete interpretation.
@@ -123,6 +123,8 @@ The firmware reads 32-bit I2S slots at 16 kHz and converts them to signed PCM16 
 - Local protocol and codec tests: **4 passed**.
 - Local faster-whisper path: completed successfully.
 
+Physical testing produced 25 complete 5.75-second captures totaling 2,300,000 samples with zero drops and zero sequence gaps. The clearest command transcribed as “Stop, turn on the laboratory light, stop.” In the controlled detector check, STOP triggered 3/10 times; false activations were START 4/5, SHORT 0/5, STARK 2/5, STOT 5/5 and SHOP 0/5. See the retained [physical test report](hardware-tests/2026-09-30-v14-streaming.md).
+
 Localhost timing verifies instrumentation only. It is not physical ESP32/Wi-Fi latency evidence. See [validation and evidence](docs/VALIDATION.md).
 
 ## Repository guide
@@ -143,7 +145,7 @@ Localhost timing verifies instrumentation only. It is not physical ESP32/Wi-Fi l
 ## Important limitations
 
 - V14 did not pass the original keyword acceptance gates.
-- The combined application has not yet run on the physical ESP32.
+- The combined application ran on the physical ESP32, but the exact installed ESP32 core version was not independently captured.
 - The build's static-memory figure is not whole-application peak RAM.
 - Printed `work%` and `net%` values measure selected active sections, not formal total CPU utilization.
 - The included same-speaker personal test recordings are small and have been reused during development.
