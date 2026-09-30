@@ -1,0 +1,10 @@
+{
+  "model_sha256": "9355159564858cfc5ab219b166e29e4b10385bc90b0fae3d9eecbf105614c5a9",
+  "threshold": 0.8671875,
+  "threshold_basis": "V14 comparison threshold; not selected or approved for V16",
+  "source_checkpoint": "outputs/stop_model_expanded_v16/epoch_10.tflite",
+  "validation_status": "rejected",
+  "held_out_test_evaluated": false,
+  "reference_outputs": "TFLite BUILTIN_REF",
+  "purpose": "controlled physical comparison only"
+}
